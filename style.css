@@ -2,13 +2,13 @@ body{
     display: flex;
     background-color: blueviolet;
 }
-.container div{
+#container div{
     background-color: darkblue;
     color: white;
     padding: 6px 36px 8px 36px;
     border-radius: 5px;
     font-size: 28px;
 }
-.container a{
+#container a{
     text-decoration: none;
 }
