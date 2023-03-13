@@ -25,7 +25,7 @@ body{
     text-align: center;
     font-weight: bold;
     opacity: 1;
-    transition-duration: 1s;
+    transition-duration: .5s;
 }
 #container div:hover {
     opacity: .5;
