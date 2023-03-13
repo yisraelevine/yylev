@@ -11,7 +11,7 @@ body{
     text-align: center;
     font-weight: bold;
 }
-#container div:not(:last-child){
+#container a:not(:last-child) div {
     margin-bottom: 5px;
 }
 #container a{
