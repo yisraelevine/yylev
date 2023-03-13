@@ -28,7 +28,7 @@ body{
     transition-duration: .5s;
 }
 #container div:hover {
-    opacity: .5;
+    opacity: .7;
     transition-duration: .1s;
 }
 #container a:not(:last-child) div {
