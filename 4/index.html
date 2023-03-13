@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Get All Videos in Channel Example</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            background-color: #2c2c2c;
+        }
+        .video-container {
+            margin: 50px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            direction: rtl;
+        }
+        .video-item {
+            margin: 10px;
+        }
+        .video-item img {
+            border-radius: 8px;
+            box-shadow: -10px 10px 20px -8px #000000e0;
+            opacity: 1;
+            transition-duration: 1s;
+        }
+        .video-item img:hover {
+            opacity: 0.5;
+            transition-duration: .3s;
+        }
+    </style>
+    
+    <script>
+const channelId = "UCjcb7lFSYQGiw3maCkYGHmg";
+const maxResults = 50;
+        const apiKey = "AIzaSyB4-mBDP2yGqRKSqHfQSkGlRrKa-i08BWY";
+const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}`;
+
+const videoContainer = document.createElement("div");
+videoContainer.classList.add("video-container");
+document.body.appendChild(videoContainer);
+
+function createVideoItem(videoId, thumbnailUrl, videoTitle) {
+  const videoItem = document.createElement("div");
+  videoItem.classList.add("video-item");
+  const thumbnailLink = document.createElement("a");
+  thumbnailLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+  const thumbnailImg = document.createElement("img");
+  thumbnailImg.src = thumbnailUrl;
+  thumbnailImg.alt = videoTitle;
+  thumbnailLink.appendChild(thumbnailImg);
+  videoItem.appendChild(thumbnailLink);
+  videoContainer.appendChild(videoItem);
+}
+
+function getChannelVideos(pageToken = "") {
+  fetch(`${apiUrl}&pageToken=${pageToken}`)
+    .then((response) => response.json())
+    .then((data) => {
+      data.items.forEach((item) => {
+        if (item.id.kind === "youtube#video") {
+          createVideoItem(
+            item.id.videoId,
+            item.snippet.thumbnails.medium.url,
+            item.snippet.title
+          );
+        }
+      });
+      if (data.nextPageToken) {
+        getChannelVideos(data.nextPageToken);
+      }
+    })
+    .catch((error) => console.error(error));
+}
+
+getChannelVideos();
+
+    </script>
+</body>
+</html>
