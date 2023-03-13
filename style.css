@@ -3,12 +3,13 @@ body{
     background-color: blueviolet;
 }
 #container div{
-    background-color: darkblue;
-    color: white;
+    background-color: #8875ff;
+    color: #004372;
     padding: 6px 36px 8px 36px;
     border-radius: 5px;
     font-size: 28px;
     text-align: center;
+    font-weight: bold;
 }
 #container div:not(:last-child){
     margin-bottom: 5px;
