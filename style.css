@@ -24,6 +24,12 @@ body{
     font-size: 28px;
     text-align: center;
     font-weight: bold;
+    opacity: 1;
+    transition-duration: 1s;
+}
+#container div:hover {
+    opacity: .5;
+    transition-duration: .2s;
 }
 #container a:not(:last-child) div {
     margin-bottom: 8px;
