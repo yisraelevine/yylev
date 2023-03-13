@@ -25,14 +25,16 @@ body{
     text-align: center;
     font-weight: bold;
     opacity: 1;
-    transition-duration: .5s;
+    transition-duration: .8s;
+    transition-property: opacity;
 }
 #container div:hover {
     opacity: .7;
-    transition-duration: .1s;
+    transition-duration: .3s;
+    transition-property: opacity;
 }
 #container a:not(:last-child) div {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 #container a{
     text-decoration: none;
