@@ -10,6 +10,9 @@ body{
     font-size: 28px;
     text-align: center;
 }
+#container div:not(:last-child){
+    margin-bottom: 5px;
+}
 #container a{
     text-decoration: none;
 }
