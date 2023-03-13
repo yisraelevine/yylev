@@ -8,11 +8,12 @@ body{
     background-color: blueviolet;
     justify-content: center;
 }
-#container div{
-    background-color: #8875ff;
+#container div {
+    background-color: #cfeeff;
     color: #004372;
+    box-shadow: 0px 5px 15px 0px #5656568c;
     padding: 6px 36px 8px 36px;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 28px;
     text-align: center;
     font-weight: bold;
