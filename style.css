@@ -19,7 +19,7 @@ body{
     font-weight: bold;
 }
 #container a:not(:last-child) div {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 #container a{
     text-decoration: none;
