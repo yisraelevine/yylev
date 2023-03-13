@@ -29,7 +29,7 @@ body{
 }
 #container div:hover {
     opacity: .5;
-    transition-duration: .2s;
+    transition-duration: .1s;
 }
 #container a:not(:last-child) div {
     margin-bottom: 8px;
