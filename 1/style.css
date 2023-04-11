@@ -1,19 +1,22 @@
-body{
+body {
     background-color: #7d6c37;
     text-align: center;
 }
-header{
+
+body>header {
     color: #332c17;
     font-weight: bolder;
     font-size: 38px;
 }
-div{
+
+body>div {
     display: inline-block;
     width: 100%;
     text-align: right;
     max-width: 600px;
 }
-section{
+
+body>div>div {
     text-align: justify;
     box-sizing: border-box;
     background-color: #6b6443;
@@ -25,7 +28,8 @@ section{
     margin: 6px 0;
     width: 100%;
 }
-input{
+
+body>div>div>input {
     box-sizing: border-box;
     background-color: #6b6443;
     color: #2c2516;
@@ -35,7 +39,8 @@ input{
     width: 70%;
     outline: none;
 }
-div div{
+
+body>div>div>label {
     text-align: center;
     direction: rtl;
     box-sizing: border-box;
@@ -45,65 +50,17 @@ div div{
     width: 30%;
     float: right;
     padding: 0 10px;
-    background-color: rgba(124,117,79,0.5);
+    background-color: rgba(124, 117, 79, 0.5);
     height: 85px;
     line-height: 70px;
 }
-span{
+
+body>div>div>label>span {
     line-height: 1.1;
     display: inline-block;
     vertical-align: middle;
 }
-input::-webkit-inner-spin-button {
+
+body>div>div>input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-/*@media screen and (max-width: 570px){
-    div div{
-        white-space: normal;
-    }
-}
-@media screen and (max-width: 550px){
-    div div{
-        font-size: 28px;
-    }
-}
-@media screen and (max-width: 530px){
-    div div{
-        font-size: 27px;
-    }
-}
-@media screen and (max-width: 510px){
-    div div{
-        font-size: 26px;
-    }
-}
-@media screen and (max-width: 490px){
-    div div{
-        font-size: 25px;
-    }
-}
-@media screen and (max-width: 470px){
-    div div{
-        font-size: 24px;
-    }
-}
-@media screen and (max-width: 450px){
-    div div{
-        font-size: 23px;
-    }
-}
-@media screen and (max-width: 430px){
-    div div{
-        font-size: 22px;
-    }
-}
-@media screen and (max-width: 410px){
-    div div{
-        font-size: 21px;
-    }
-}
-@media screen and (max-width: 390px){
-    div div{
-        font-size: 20px;
-    }
-}*/

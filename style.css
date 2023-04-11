@@ -8,14 +8,14 @@ body{
     background-color: blueviolet;
     justify-content: center;
 }
-#container {
+nav {
     box-shadow: 0 0 15px 15px #4040404f;
     background-color: cadetblue;
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
 }
-#container div {
+nav div {
     background-color: #cfeeff;
     color: #004372;
     box-shadow: 0px 5px 15px 0px #5656568c;
@@ -28,14 +28,14 @@ body{
     transition-duration: .8s;
     transition-property: opacity;
 }
-#container div:hover {
+nav div:hover {
     opacity: .7;
     transition-duration: .3s;
     transition-property: opacity;
 }
-#container a:not(:last-child) div {
+nav a:not(:last-child) div {
     margin-bottom: 12px;
 }
-#container a{
+nav a{
     text-decoration: none;
 }
