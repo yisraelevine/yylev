@@ -1,51 +1,63 @@
-body{
+body {
     background-color: #0f533a;
-    text-align: center;
+    color: #00291c;
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
-.con{
-    display: inline-table;
-    text-align: right;
-    margin-right: 30px;
-    margin-left: 20px;
-    margin-top: 10px;
+
+body>div {
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    align-items: flex-end;
 }
-.label{
-    text-align: right;
-    margin-right: 7px;
-    margin-bottom: 3px;
-    font-size: 26px;
-    color: #031912;
+
+body>div>div.first {
+    display: flex;
+    width: max-content;
+    color: #002016;
+    flex-direction: column;
+    align-items: center;
     font-weight: bold;
     letter-spacing: 1px;
+    margin-right: 10px;
 }
-input{
-    width: 90%;
-    background-color: #127652;
+
+body>div>div.first>span {
+    font-size: 20px;
+}
+
+body>div>div.first>label {
+    font-size: 30px;
+}
+
+body>div>input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    background-color: #229c70;
+    color: #00291c;
     border: #063222 solid 2px;
     border-radius: 6px;
-    font-size: 32px;
+    font-size: 45px;
     direction: rtl;
-    padding: 12px;
+    box-sizing: border-box;
+    outline: none;
 }
-.output_label{
-    text-align: left;
-    margin-left: 14px;
-    padding-top: 15px;
+
+body>div>div.second {
+    width: 100%;
 }
-.output_label span{
+
+body>div>div.second>span {
     display: block;
-    margin-top: 5px;
-    color: #031912;
-    width: fit-content;
+    width: max-content;
     min-width: 80px;
-    background-color: #127652;
-    padding: 15px 20px;
-    font-size: 30px;
+    padding: 10px 20px;
+    background-color: #229c70;
+    border: #063222 solid 2px;
+    font-size: 40px;
     text-align: center;
     border-radius: 6px;
-    border: #063222 solid 2px;
-}
-header{
-    margin-right: 34px;
 }

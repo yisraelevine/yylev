@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <link rel="icon" href="data:,">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="גימטריה">
     <title>גימטריה</title>
     <link href="style.css" rel="stylesheet">
-    <script src="script.js"></script>
 </head>
+
 <body>
-<div class="con">
-    <header>ב"ה</header>
-    <div class="label">גימטריה</div>
-    <label><input id="theInput" oninput="makeGim()"/></label>
-    <div class="output_label">
-        <span id="output">0</span>
+    <div>
+        <div class="first">
+            <span>ב"ה</span>
+            <label for="theInput">גימטריה</label>
+        </div>
+        <input id="theInput" oninput="makeGim()" title="input" />
+        <div class="second">
+            <span id="output">0</span>
+        </div>
     </div>
-</div>
+    <script src="script.js"></script>
 </body>
+
 </html>
