@@ -79,6 +79,10 @@ body {
     border-radius: 3px;
 }
 
+#main>.container.a>.container.listcontainers>.container.liststories {
+    display: none;
+}
+
 #main>.container.a>.container.listcontainers>.container.liststories>.button.story {
     width: 100%;
     height: 32px;
