@@ -14,10 +14,11 @@ fetch(urlSheets).then(res => res.text()).then(rep => {
     const containersToAdd = (jsDataRowsLen / 100).toFixed();
 
     for (let i = 0; i < containersToAdd; i++) {
+        let buttonsToAdd;
         if (i + 1 !== containersToAdd) {
-            const buttonsToAdd = 100;
+            buttonsToAdd = 100;
         } else {
-            const buttonsToAdd = jsDataRowsLen % 100;
+            buttonsToAdd = jsDataRowsLen % 100;
         }
         const clone1 = containerForButtons.cloneNode(true);
         for (let x = 0; x < buttonsToAdd; x++) {
