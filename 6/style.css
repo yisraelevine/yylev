@@ -1,0 +1,101 @@
+body {
+    background-color: #505050;
+    direction: rtl;
+    margin: 0;
+}
+
+#content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    background-color: #8d8d8d;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+}
+
+#header>.container.bsd>.text.bsd {
+    color: #000000;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+#main {
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#main>.container.a {
+    height: 100%;
+    width: 400px;
+    background-color: rgb(172, 172, 172);
+    border-radius: 6px;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+#main>.container.a>.container.subject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15px;
+}
+
+#main>.container.a>.container.subject>.text {
+    color: #3f3f3f;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    border-bottom: 3px #3f3f3f solid;
+    padding: 0;
+    margin-bottom: 10px;
+    width: 50%;
+    min-width: 100px;
+}
+
+#main>.container.a>.container.listcontainers {
+    overflow-y: scroll;
+    border-radius: 3px;
+    height: 100%;
+    padding-left: 8px;
+}
+
+#main>.container.a>.container.listcontainers::-webkit-scrollbar {
+    background-color: rgb(221, 221, 221);
+    width: 8px;
+    border-radius: 3px;
+}
+
+#main>.container.a>.container.listcontainers::-webkit-scrollbar-thumb {
+    background-color: #444444;
+    border-radius: 3px;
+}
+
+#main>.container.a>.container.listcontainers>.container.liststories>.button.story {
+    width: 100%;
+    height: 32px;
+    background-color: #505050;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    transition-duration: .4s;
+}
+
+#main>.container.a>.container.listcontainers>.container.liststories>.button.story:hover {
+    cursor: pointer;
+    background-color: #383838;
+}
+
+#main>.container.a>.container.listcontainers>.container.liststories>.button.story:not(:last-child) {
+    margin-bottom: 3px;
+}
