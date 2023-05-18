@@ -7,7 +7,7 @@ const button = containerForButtons.querySelector('.button.story');
 containerForContainers.querySelector('.container.liststories').remove();
 
 fetch(urlSheets).then(res => res.text()).then(rep => {
-    jsDataRows[0].c[0].v;
+    //jsDataRows[0].c[0].v;
     const jsData = JSON.parse(rep.substring(47).slice(0, -2));
     const jsDataRows = jsData.table.rows;
     const jsDataRowsLen = jsDataRows.length;
