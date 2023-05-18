@@ -8,12 +8,14 @@ containerForContainers.querySelector('.container.liststories').remove();
 containerForButtons.innerHTML = '';
 
 let containersToAdd;
+let containerVisible;
 fetch(urlSheets).then(res => res.text()).then(rep => {
     const jsData = JSON.parse(rep.substring(47).slice(0, -2));
-    const jsDataRows = jsData.table.rows;
+    const jsDataRows = jsData.table.rows.reverse();
     const jsDataRowsLen = jsDataRows.length;
-    
+
     containersToAdd = Number((jsDataRowsLen / 100).toFixed());
+    containerVisible = containersToAdd - 1;
 
     for (let i = 0, z = 0; i < containersToAdd; i++) {
         let buttonsToAdd;
@@ -23,8 +25,8 @@ fetch(urlSheets).then(res => res.text()).then(rep => {
             buttonsToAdd = 100;
         }
         const clone1 = containerForButtons.cloneNode(true);
-        if(i === 0){
-            clone1.style.display = 'block';
+        if (i === containersToAdd - 1) {
+            clone1.style.display = 'flex';
         }
         for (let x = 0; x < buttonsToAdd; x++, z++) {
             const clone2 = button.cloneNode(true);
@@ -35,15 +37,28 @@ fetch(urlSheets).then(res => res.text()).then(rep => {
     }
 });
 
-let containerVisible = 0;
-function showOnlySpicificContainer(pos) {
+function showOnlySpicificContainer() {
     containerForContainers.children[containerVisible].style.display = 'none';
-    if(pos === true && containerVisible < containersToAdd - 1){
+    if (this === navB && containerVisible < containersToAdd - 1) {
         containerVisible++;
-    } else if(containerVisible > 0) {
+    } else if (containerVisible > 0 && this === navF) {
         containerVisible--;
     }
-    console.log(containerVisible);  
-    containerForContainers.children[containerVisible].style.display = 'block';
+    if(this === navF && containerVisible === 0){
+        navF.style.visibility = 'hidden';
+    } else if (this === navB && containerVisible === 6) {
+        navB.style.visibility = 'hidden';
+    } else {
+        navF.style.visibility = 'visible';
+        navB.style.visibility = 'visible';
+    }
+    containerForContainers.children[containerVisible].style.display = 'flex';
+
 }
+
+const navF = document.querySelector('#main>.container.a>.container.heading>.container.navF');
+const navB = document.querySelector('#main>.container.a>.container.heading>.container.navB');
+
+navF.addEventListener('mousedown', showOnlySpicificContainer);
+navB.addEventListener('mousedown', showOnlySpicificContainer);
 
