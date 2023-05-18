@@ -23,7 +23,7 @@ fetch(urlSheets).then(res => res.text()).then(rep => {
         const clone1 = containerForButtons.cloneNode(true);
         for (let x = 0; x < buttonsToAdd; x++) {
             const clone2 = button.cloneNode(true);
-            clone.innerHTML = x;
+            clone2.innerHTML = x;
             clone1.appendChild(clone2);
         }
         containerForContainers.appendChild(clone1);
