@@ -2,6 +2,7 @@ body {
     background-color: #505050;
     direction: rtl;
     margin: 0;
+    font-family: Arial;
 }
 
 #content {
@@ -97,5 +98,9 @@ body {
 }
 
 #main>.container.a>.container.listcontainers>.container.liststories>.button.story:not(:last-child) {
+    margin-bottom: 3px;
+}
+
+#main>.container.a>.container.listcontainers>.container.liststories:not(:last-child) {
     margin-bottom: 3px;
 }
