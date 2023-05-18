@@ -16,7 +16,7 @@ fetch(urlSheets).then(res => res.text()).then(rep => {
 
     for (let i = 0; i < containersToAdd; i++) {
         let buttonsToAdd;
-        if (i + 1 !== containersToAdd) {
+        if (i - 1 !== containersToAdd) {
             buttonsToAdd = 100;
         } else {
             buttonsToAdd = jsDataRowsLen % 100;
