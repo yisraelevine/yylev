@@ -12,14 +12,14 @@ fetch(urlSheets).then(res => res.text()).then(rep => {
     const jsData = JSON.parse(rep.substring(47).slice(0, -2));
     const jsDataRows = jsData.table.rows;
     const jsDataRowsLen = jsDataRows.length;
-    const containersToAdd = (jsDataRowsLen / 100).toFixed();
+    const containersToAdd = Number((jsDataRowsLen / 100).toFixed());
 
     for (let i = 0; i < containersToAdd; i++) {
         let buttonsToAdd;
-        if (i - 1 !== containersToAdd) {
-            buttonsToAdd = 100;
-        } else {
+        if (i + 1 === containersToAdd) {
             buttonsToAdd = jsDataRowsLen % 100;
+        } else {
+            buttonsToAdd = 100;
         }
         console.log(buttonsToAdd);
         const clone1 = containerForButtons.cloneNode(true);
