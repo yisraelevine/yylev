@@ -74,6 +74,10 @@ body {
     padding: 0;
 }
 
+#main>.container.a>.container.heading>.container.navB {
+    visibility: hidden;
+}
+
 #main>.container.a>.container.heading>.container.navbetweencontainers {
     color: #3f3f3f;
     text-align: center;
