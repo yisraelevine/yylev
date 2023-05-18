@@ -11,9 +11,10 @@ for(let i = 0; i < 100; i++){
 const sheetId = '1MNlbLGJt2NBiXabHWXWSpcHnv9nahq-LBePTOgi00OY';
 const urlSheets = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq`;
 
+let aaa;
 fetch(urlSheets).then(res => res.text()).then(rep => {
     const jsData = JSON.parse(rep.substring(47).slice(0, -2));
     const jsDataRows = jsData.table.rows;
-    console.log(jsDataRows);
+    aaa = jsDataRows;
     const jsDataRowsLen = jsDataRows.length;
 });
