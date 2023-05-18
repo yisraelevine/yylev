@@ -21,6 +21,7 @@ fetch(urlSheets).then(res => res.text()).then(rep => {
         } else {
             buttonsToAdd = jsDataRowsLen % 100;
         }
+        console.log(buttonsToAdd);
         const clone1 = containerForButtons.cloneNode(true);
         for (let x = 0; x < buttonsToAdd; x++) {
             const clone2 = button.cloneNode(true);
