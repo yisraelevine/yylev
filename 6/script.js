@@ -5,6 +5,7 @@ const containerForContainers = document.querySelector('#main>.container.a>.conta
 const containerForButtons = containerForContainers.querySelector('.container.liststories');
 const button = containerForButtons.querySelector('.button.story');
 containerForContainers.querySelector('.container.liststories').remove();
+containerForButtons.innerHTML = '';
 
 fetch(urlSheets).then(res => res.text()).then(rep => {
     //jsDataRows[0].c[0].v;
