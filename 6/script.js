@@ -5,19 +5,22 @@ const containerForContainers = document.querySelector('#main>.container.a>.conta
 const containerForButtons = containerForContainers.querySelector('.container.liststories');
 const button = containerForButtons('.button.story');
 containerForButtons.querySelector('.button.story').remove();
+containerForContainers.querySelector('.container.liststories').remove();
 
 fetch(urlSheets).then(res => res.text()).then(rep => {
+    jsDataRows[0].c[0].v;
     const jsData = JSON.parse(rep.substring(47).slice(0, -2));
     const jsDataRows = jsData.table.rows;
     const jsDataRowsLen = jsDataRows.length;
-    jsDataRows[0].c[0].v;
     const containersToAdd = (jsDataRowsLen / 100).toFixed();
+    
     for(let i = 0; i < containersToAdd; i++){
-        
+        const clone1 =  containerForButtons.cloneNode(true);
+        container.appendChild(clone2);
     }
         for(let i = 0; i < 100; i++){
-            const clone = node.cloneNode(true);
+            const clone2 = node.cloneNode(true);
             clone.innerHTML = i;
-            container.appendChild(clone);
+            container.appendChild(clone2);
         }
 });
