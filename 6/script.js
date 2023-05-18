@@ -3,7 +3,7 @@ const urlSheets = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq`;
 
 const containerForContainers = document.querySelector('#main>.container.a>.container.listcontainers');
 const containerForButtons = containerForContainers.querySelector('.container.liststories');
-const button = containerForButtons('.button.story');
+const button = containerForButtons.querySelector('.button.story');
 containerForContainers.querySelector('.container.liststories').remove();
 
 fetch(urlSheets).then(res => res.text()).then(rep => {
