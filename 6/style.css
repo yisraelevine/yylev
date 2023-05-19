@@ -1,30 +1,30 @@
 body {
-    background-color: #505050;
     direction: rtl;
     margin: 0;
     font-family: Arial;
     -webkit-user-select: none;
     user-select: none;
+    background-color: #505050;
 }
 
 #content {
-    height: 100vh;
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 #header {
-    background-color: #8d8d8d;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 8px;
+    background-color: #8d8d8d;
 }
 
 #header>.container.bsd>.text.bsd {
-    color: #3f3f3f;
-    font-weight: bolder;
     font-size: 24px;
+    font-weight: bolder;
+    color: #3f3f3f;
 }
 
 #main {
@@ -34,14 +34,14 @@ body {
 }
 
 #main>.container.a {
-    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
     width: 50%;
-    background-color: rgb(172, 172, 172);
+    height: 100%;
     border-radius: 6px;
     padding: 8px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    background-color: rgb(172, 172, 172);
 }
 
 @media screen and (max-width: 1100px) {
@@ -52,16 +52,22 @@ body {
     }
 
     #main>.container.a {
-        width: 100%;
         max-width: 700px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #main>.container.a>.container.listcontainers>.container.liststories>.button.story {
+        width: 100% !important;
     }
 }
 
 #main>.container.a>.container.heading {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
     margin-left: 15px;
     margin-bottom: 10px;
 }
@@ -74,11 +80,11 @@ body {
 }
 
 #main>.container.a>.container.heading>.container.subject>.text {
-    color: #3f3f3f;
     text-align: center;
+    padding: 0;
     font-size: 32px;
     font-weight: bold;
-    padding: 0;
+    color: #3f3f3f;
 }
 
 #main>.container.a>.container.heading>.container.navB {
@@ -86,13 +92,13 @@ body {
 }
 
 #main>.container.a>.container.heading>.container.navbetweencontainers {
-    color: #3f3f3f;
+    width: 25%;
     text-align: center;
+    padding: 0;
     font-size: 20px;
     font-weight: bold;
-    padding: 0;
-    width: 25%;
     cursor: pointer;
+    color: #3f3f3f;
 }
 
 #main>.container.a>.container.heading>.container.navbetweencontainers:hover {
@@ -100,21 +106,21 @@ body {
 }
 
 #main>.container.a>.container.listcontainers {
-    overflow-y: scroll;
-    border-radius: 3px;
     height: 100%;
     padding-left: 5px;
+    border-radius: 3px;
+    overflow-y: scroll;
 }
 
 #main>.container.a>.container.listcontainers::-webkit-scrollbar {
-    background-color: rgb(221, 221, 221);
     width: 10px;
     border-radius: 3px 0 0 3px;
+    background-color: rgb(221, 221, 221);
 }
 
 #main>.container.a>.container.listcontainers::-webkit-scrollbar-thumb {
-    background-color: #444444;
     border-radius: 3px 0 0 3px;
+    background-color: #444444;
 }
 
 #main>.container.a>.container.listcontainers>.container.liststories {
@@ -125,19 +131,19 @@ body {
 }
 
 #main>.container.a>.container.listcontainers>.container.liststories>.button.story {
-    width: calc(50% - 3px);
-    height: 36px;
-    background-color: #505050;
-    border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 20px;
-    transition-duration: .3s;
-    cursor: pointer;
+    width: calc(50% - 3px);
+    height: 36px;
     margin-left: 3px;
     margin-bottom: 3px;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    background-color: #505050;
+    transition-duration: .3s;
 }
 
 #main>.container.a>.container.listcontainers>.container.liststories>.button.story:hover {
