@@ -35,7 +35,7 @@ body {
 
 #main>.container.a {
     height: 100%;
-    width: 33.3%;
+    width: 50%;
     background-color: rgb(172, 172, 172);
     border-radius: 6px;
     padding: 8px;
@@ -44,9 +44,16 @@ body {
     flex-direction: column;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
+    #main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     #main>.container.a {
         width: 100%;
+        max-width: 700px;
     }
 }
 
@@ -96,7 +103,7 @@ body {
     overflow-y: scroll;
     border-radius: 3px;
     height: 100%;
-    padding-left: 8px;
+    padding-left: 5px;
 }
 
 #main>.container.a>.container.listcontainers::-webkit-scrollbar {
@@ -113,11 +120,13 @@ body {
 #main>.container.a>.container.listcontainers>.container.liststories {
     display: none;
     flex-direction: column-reverse;
+    flex-flow: wrap-reverse;
+    flex-direction: row-reverse;
 }
 
 #main>.container.a>.container.listcontainers>.container.liststories>.button.story {
-    width: 100%;
-    height: 32px;
+    width: calc(50% - 3px);
+    height: 36px;
     background-color: #505050;
     border-radius: 3px;
     display: flex;
@@ -127,14 +136,12 @@ body {
     font-size: 20px;
     transition-duration: .3s;
     cursor: pointer;
+    margin-left: 3px;
+    margin-bottom: 3px;
 }
 
 #main>.container.a>.container.listcontainers>.container.liststories>.button.story:hover {
     background-color: #383838;
-}
-
-#main>.container.a>.container.listcontainers>.container.liststories>.button.story:not(:first-child) {
-    margin-bottom: 3px;
 }
 
 #main>.container.a>.container.listcontainers>.container.liststories:not(:last-child) {
