@@ -13,6 +13,7 @@ function funcBtnForDisolayChg() {
     currentTable.parentElement.style.backgroundColor = 'rgb(120 114 34)';
     currentTable = this.nextElementSibling;
     currentTable.style.display = 'table';
+    currentTable.parentElement.scrollIntoView({ behavior: "smooth", block: "center" });
     currentTable.parentElement.style.backgroundColor = 'rgb(74, 69, 6)';
 }
 
