@@ -74,10 +74,6 @@ nav:last-child a {
     display: none;
 }
 
-#main>div>table>tbody>tr {
-    display: table-row;
-}
-
 #main>div>table>tbody>tr>td {
     display: table-cell;
     background-color: rgb(230, 230, 195);
