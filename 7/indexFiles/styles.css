@@ -95,6 +95,11 @@ table>tbody>tr>td>a {
     text-decoration: underline;
 }
 
+table>tbody>tr>td>span{
+    visibility: hidden;
+    padding-left: 6px;
+}
+
 a:visited {
     color: rgb(75, 75, 1);
 }
