@@ -36,7 +36,7 @@ document.querySelectorAll('tr').forEach(tr => {
     if(tr.querySelectorAll('a').length < 3){
         if(!tr.innerHTML.includes('וידאו')){
             const clone = node.cloneNode(true);
-            tr.querySelectorAll('td')[3].insertBefore(clone, tr.querySelectorAll('a')[1]);
+            tr.querySelector('a').after(clone);
         }
     };
 });
