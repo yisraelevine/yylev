@@ -1,0 +1,82 @@
+html {
+    direction: rtl;
+}
+
+body {
+    display: none;
+    flex-direction: row;
+    background-color: rgb(131, 131, 131);
+    justify-content: space-between;
+}
+
+body>span {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+main {
+    margin-top: 10px;
+    overflow: auto;
+    max-height: calc(100vh - 64px);
+    width: calc(50vw - 25px);
+    padding: 10px;
+    font-family: system-ui;
+}
+
+main::-webkit-scrollbar {
+    background-color: rgb(204, 221, 226);
+    width: 10px;
+    border-radius: 3px;
+    outline: #051c35 2px solid;
+    overflow: hidden;
+}
+
+main::-webkit-scrollbar-thumb {
+    background-color: rgb(6, 49, 63);
+}
+
+main>div {
+    flex-direction: row;
+    display: flex;
+    align-items: baseline;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+main>div:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+main>div>h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 16px;
+    line-height: 0;
+}
+
+main>div>p {
+    font-size: 24px;
+    text-align: justify;
+    margin: 0;
+    font-weight: 500;
+}
+
+exp-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(50vw - 25px);
+}
+
+exp-inner {
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    border-radius: 8px;
+    background-color: rgb(188, 219, 209);
+    border: 2px rgb(70, 85, 80) solid;
+    box-shadow: 0 0 40px -10px gray;
+    transition-duration: .3s;
+}
