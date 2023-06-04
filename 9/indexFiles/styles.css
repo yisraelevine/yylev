@@ -7,6 +7,7 @@ body {
     flex-direction: row;
     background-color: rgb(131, 131, 131);
     justify-content: space-between;
+    font-family: system-ui;
 }
 
 body>span {
@@ -21,7 +22,6 @@ main {
     max-height: calc(100vh - 64px);
     width: calc(50vw - 25px);
     padding: 10px;
-    font-family: system-ui;
 }
 
 main::-webkit-scrollbar {
@@ -72,7 +72,7 @@ exp-outer {
     width: calc(50vw - 25px);
 }
 
-exp-inner {
+exp-outer>exp-inner {
     width: calc(100% - 50px);
     height: calc(100% - 50px);
     border-radius: 6px;
@@ -80,4 +80,13 @@ exp-inner {
     border: 2px rgb(70, 85, 80) solid;
     box-shadow: 0 0 40px -10px gray;
     transition-duration: .3s;
+}
+
+exp-outer>exp-inner>p {
+    padding: 20px;
+    font-size: 24px;
+    text-align: justify;
+    margin: 0;
+    font-weight: 500;
+    word-spacing: 2px;
 }

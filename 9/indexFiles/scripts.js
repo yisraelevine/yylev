@@ -2,8 +2,9 @@ const sheetId = "1oz_UHSqdS7oszMsD42GgjBbgBy5sUn6tsMNo5qFPDy0";
 const urlSheets = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq`;
 
 const main = document.querySelector('main');
-const popupOuter = document.querySelector('exp-outer');
-const popupInner = popupOuter.children[0];
+const expOuter = document.querySelector('exp-outer');
+const expInner = expOuter.children[0];
+const expP = expInner.children[0];
 
 fetch(urlSheets).then(e => e.text()).then(e => {
     const data = JSON.parse(e.substring(47).slice(0, -2)).table.rows;
@@ -12,10 +13,9 @@ fetch(urlSheets).then(e => e.text()).then(e => {
     const p = document.createElement('p');
 
     data.forEach(row => {
-        row = row.c;
-        
-        const row0 = row[0].v;
-        const row1 = row[1].v;
+        const row0 = row.c[0]?.v || '';
+        const row1 = row.c[1]?.v || '';
+        const row2 = row.c[2]?.v || '';
         const node = div.cloneNode(true);
         const clone0 = h2.cloneNode(true)
         const clone1 = p.cloneNode(true)
@@ -35,7 +35,8 @@ fetch(urlSheets).then(e => e.text()).then(e => {
 
         node.appendChild(clone0);
         node.appendChild(clone1);
-        node.addEventListener('click', showPopup);
+        node.addEventListener('click', changeExp);
+        node.dataset.exp = row2;
         main.appendChild(node);
     });
     document.body.style.display = 'flex';
@@ -45,13 +46,14 @@ fetch(urlSheets).then(e => e.text()).then(e => {
 
 let currentDiv;
 
-function showPopup() {
+function changeExp() {
     if(currentDiv){
         currentDiv.style.outlineStyle = 'none';
     }
     currentDiv = this;
-    popupInner.style.backgroundColor = this.style.backgroundColor;
-    popupInner.style.color = this.style.color;
-    popupInner.style.borderColor = this.style.color;
+    expInner.style.backgroundColor = currentDiv.style.backgroundColor;
+    expInner.style.color = currentDiv.style.color;
+    expInner.style.borderColor = currentDiv.style.color;
     currentDiv.style.outlineStyle = 'solid';
+    expP.innerHTML = currentDiv.dataset.exp;
 }
