@@ -26,9 +26,11 @@ fetch(urlSheets).then(e => e.text()).then(e => {
         if (row0 === 'קושיה') {
             node.style.backgroundColor = '#f5a5a5';
             node.style.color = '#5c1212';
+            node.style.outlineColor = '#5c1212';
         } else if (row0 === 'תירוץ') {
             node.style.backgroundColor = '#b0f3b0';
             node.style.color = 'rgb(21 94 21)';
+            node.style.outlineColor = 'rgb(21 94 21)';
         }
 
         node.appendChild(clone0);
@@ -41,7 +43,15 @@ fetch(urlSheets).then(e => e.text()).then(e => {
 
 //------------------------------------------------------------------------------//
 
+let currentDiv;
+
 function showPopup() {
+    if(currentDiv){
+        currentDiv.style.outlineStyle = 'none';
+    }
+    currentDiv = this;
     popupInner.style.backgroundColor = this.style.backgroundColor;
     popupInner.style.color = this.style.color;
+    popupInner.style.borderColor = this.style.color;
+    currentDiv.style.outlineStyle = 'solid';
 }

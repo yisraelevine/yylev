@@ -41,7 +41,8 @@ main>div {
     display: flex;
     align-items: baseline;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 6px;
+    outline-width: 2px;
     cursor: pointer;
 }
 
@@ -74,7 +75,7 @@ exp-outer {
 exp-inner {
     width: calc(100% - 50px);
     height: calc(100% - 50px);
-    border-radius: 8px;
+    border-radius: 6px;
     background-color: rgb(188, 219, 209);
     border: 2px rgb(70, 85, 80) solid;
     box-shadow: 0 0 40px -10px gray;
