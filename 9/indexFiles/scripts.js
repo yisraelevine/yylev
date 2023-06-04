@@ -45,15 +45,20 @@ fetch(urlSheets).then(e => e.text()).then(e => {
 //------------------------------------------------------------------------------//
 
 let currentDiv;
-
+let timeoutTime = 100;
 function changeExp() {
-    if(currentDiv){
+    if (currentDiv) {
         currentDiv.style.outlineStyle = 'none';
+        expP.style.opacity = 0;
+        timeoutTime = 400;
     }
     currentDiv = this;
     expInner.style.backgroundColor = currentDiv.style.backgroundColor;
     expInner.style.color = currentDiv.style.color;
     expInner.style.borderColor = currentDiv.style.color;
     currentDiv.style.outlineStyle = 'solid';
-    expP.innerHTML = currentDiv.dataset.exp;
+    setTimeout(function () {
+        expP.innerHTML = currentDiv.dataset.exp;
+        expP.style.opacity = 1;
+    }, timeoutTime);
 }
