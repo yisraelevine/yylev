@@ -5,28 +5,18 @@ const trElements = document.querySelectorAll('tr');
 let currentTable = tables[0];
 
 tables.forEach(el => {
-    el.previousElementSibling.addEventListener('click', funcBtnForDisolayChg);
+    el.parentElement.addEventListener('click', funcBtnForDisolayChg);
     el.style.display = 'table';
-    el.dataset.height = el.clientHeight;
     el.style.display = 'none';
 });
 
 function funcBtnForDisolayChg() {
-    currentTable.style.height = '0';
     currentTable.style.display = 'none';
     currentTable.parentElement.style.backgroundColor = 'rgb(120 114 34)';
-    currentTable = this.nextElementSibling;
-    currentTable.style.display = 'block';
+    currentTable = this.children[1];
+    currentTable.style.display = 'table';
+    currentTable.parentElement.scrollIntoView({ behavior: "smooth", block: "start" });
     currentTable.parentElement.style.backgroundColor = 'rgb(74, 69, 6)';
-    setTimeout(function () {
-        currentTable.style.height = currentTable.dataset.height + 'px';
-        setTimeout(function () {
-            currentTable.parentElement.scrollIntoView({ behavior: "smooth", block: "start" });
-            setTimeout(function () {
-                currentTable.parentElement.scrollIntoView({ behavior: "smooth", block: "start" });
-            }, 400);
-        }, 400);
-    }, 100);
 }
 
 function funcPlayAudio() {
@@ -46,8 +36,8 @@ a.forEach(el => {
 const node = document.createElement('span');
 node.innerHTML = 'וידאו';
 document.querySelectorAll('tr').forEach(tr => {
-    if (tr.querySelectorAll('a').length < 3) {
-        if (!tr.innerHTML.includes('וידאו')) {
+    if(tr.querySelectorAll('a').length < 3){
+        if(!tr.innerHTML.includes('וידאו')){
             const clone = node.cloneNode(true);
             tr.querySelector('a').after(clone);
         }

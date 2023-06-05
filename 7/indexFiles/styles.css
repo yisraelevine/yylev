@@ -2,7 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(0deg, rgba(76,145,143,1) 0%, rgba(126,195,193,1) 50%, rgb(93, 143, 142) 100%);
+    background: linear-gradient(0deg, rgba(76, 145, 143, 1) 0%, rgba(126, 195, 193, 1) 50%, rgb(93, 143, 142) 100%);
     direction: rtl;
     font-family: Arial, Helvetica, sans-serif
 }
@@ -49,6 +49,10 @@ nav:last-child a {
     padding: 6px;
     border: 3px rgb(209, 209, 82) solid;
     background-color: rgb(104, 99, 26);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
 }
 
 #main>div:not(:last-child) {
@@ -61,22 +65,28 @@ nav:last-child a {
     text-align: center;
     color: rgb(230, 230, 195);
     padding: 0 7px;
-    cursor: pointer;
 }
 
 #main>div>table {
-    height: 0;
     margin-top: 7px;
     background-color: rgb(218, 218, 166);
     border-style: solid;
     border-width: 1px;
     border-color: rgb(120, 120, 36) rgb(70, 70, 8) rgb(70, 70, 8) rgb(120, 120, 36);
     overflow-y: hidden;
-    transition-duration: .3s;
+    transition-duration: .1s;
+    max-width: max-content;
+    cursor: default;
 }
 
-#main>div>table:not(:first-child) {
-    display: none;
+#main>div>div::selection {
+    color: rgb(75, 75, 1);
+    background-color: rgb(218, 218, 166);
+}
+
+#main>div>table>tbody>tr>td::selection, #main>div>table>tbody>tr>td>a::selection {
+    background-color: rgb(75, 75, 1);
+    color: rgb(218, 218, 166);
 }
 
 #main>div>table>tbody>tr>td {
@@ -95,7 +105,7 @@ nav:last-child a {
 }
 
 #main>div>table>tbody>tr>td:nth-child(2) {
-    text-align: left;
+    text-align: center;
 }
 
 table>tbody>tr>td>a {
@@ -104,7 +114,7 @@ table>tbody>tr>td>a {
     text-decoration: underline;
 }
 
-table>tbody>tr>td>span{
+table>tbody>tr>td>span {
     visibility: hidden;
     padding-left: 6px;
 }
