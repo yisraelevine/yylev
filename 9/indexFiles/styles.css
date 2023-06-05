@@ -24,7 +24,7 @@ main {
     padding: 10px;
 }
 
-main::-webkit-scrollbar {
+main::-webkit-scrollbar, exp-outer>exp-inner::-webkit-scrollbar {
     background-color: rgb(204, 221, 226);
     width: 10px;
     border-radius: 3px;
@@ -32,7 +32,7 @@ main::-webkit-scrollbar {
     overflow: hidden;
 }
 
-main::-webkit-scrollbar-thumb {
+main::-webkit-scrollbar-thumb, exp-outer>exp-inner::-webkit-scrollbar-thumb {
     background-color: rgb(6, 49, 63);
 }
 
@@ -70,16 +70,19 @@ exp-outer {
     justify-content: center;
     align-items: center;
     width: calc(50vw - 25px);
+    height: calc(100vh - 38px);
+    padding: 10px;
 }
 
 exp-outer>exp-inner {
-    width: calc(100% - 50px);
-    height: calc(100% - 50px);
+    height: 100%;
+    width: 100%;
     border-radius: 6px;
     background-color: rgb(188, 219, 209);
     border: 3px rgb(70, 85, 80) solid;
     box-shadow: 0 0 40px -10px gray;
     transition-duration: .3s;
+    overflow-y: auto;
 }
 
 exp-outer>exp-inner>p {

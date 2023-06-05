@@ -14,8 +14,8 @@ fetch(urlSheets).then(e => e.text()).then(e => {
 
     data.forEach(row => {
         const row0 = row.c[0]?.v || '';
-        const row1 = row.c[1]?.v || '';
-        const row2 = row.c[2]?.v || '';
+        const row1 = row.c[1]?.v?.replaceAll('\n', '<br>') || '';
+        const row2 = row.c[2]?.v?.replaceAll('\n', '<br>') || '';
         const node = div.cloneNode(true);
         const clone0 = h2.cloneNode(true)
         const clone1 = p.cloneNode(true)
@@ -60,5 +60,20 @@ function changeExp() {
     setTimeout(function () {
         expP.innerHTML = currentDiv.dataset.exp;
         expP.style.opacity = 1;
+        changeTextSelectionColor(currentDiv.style.color, currentDiv.style.backgroundColor);
     }, timeoutTime);
+}
+
+function changeTextSelectionColor(bc, c) {
+    const styleSheet = document.styleSheets[0];
+    const rules = styleSheet.cssRules
+    const rule = `p::selection { background-color: ${bc}; color: ${c}; }`;
+
+    if (rules.length > 0) {
+        if (rules[0].selectorText === "::selection") {
+            styleSheet.deleteRule(0);
+        }
+    }
+
+    styleSheet.insertRule(rule, styleSheet.cssRules.length);
 }
