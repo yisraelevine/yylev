@@ -91,6 +91,10 @@ nav:last-child a {
     font-weight: bold;
 }
 
+#main>div>table>tbody>tr>td:nth-child(2) {
+    text-align: left;
+}
+
 table>tbody>tr>td>a {
     color: rgb(75, 75, 1);
     cursor: pointer;
