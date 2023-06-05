@@ -6,6 +6,9 @@ let currentTable = tables[0];
 
 tables.forEach(el => {
     el.previousElementSibling.addEventListener('click', funcBtnForDisolayChg);
+    el.style.display = 'table';
+    console.log(el.clientHeight);
+    el.style.display = 'none';
 });
 
 function funcBtnForDisolayChg() {
@@ -40,3 +43,4 @@ document.querySelectorAll('tr').forEach(tr => {
         }
     };
 });
+
