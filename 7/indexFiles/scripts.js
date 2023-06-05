@@ -27,9 +27,9 @@ function funcPlayAudio() {
 a.forEach(el => {
     if (el.href.slice(-3) === 'mp3') {
         el.dataset.src = el.href;
+        el.setAttribute('name', el.href);
         el.removeAttribute('href')
         el.classList = 'a';
-        el.setAttribute('aria-hidden', 'true');
         el.addEventListener('click', funcPlayAudio);
     }
 });
