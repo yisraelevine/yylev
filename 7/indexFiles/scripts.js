@@ -21,10 +21,22 @@ function funcBtnForDisolayChg() {
     currentTable.parentElement.style.backgroundColor = 'rgb(74, 69, 6)';
 }
 
+const nodeSpan = document.createElement('span');
+
 function funcPlayAudio() {
     audioPlayer.src = this.dataset.src;
-    audioPlayerFileName.innerHTML = this.parentNode.parentNode.children[0].innerHTML;
     audioPlayerFileName.style.padding = '5px 10px';
+    let cot = this.parentNode.parentNode;
+    audioPlayerFileName.innerHTML = cot.children[0].innerHTML;
+    while (cot.children[0].innerHTML === 'בענין הנ"ל') {
+        cot = cot.previousElementSibling;
+        const cott = cot.children[0].innerHTML;
+        if (cott !== 'בענין הנ"ל') {
+            const clone = nodeSpan.cloneNode(true);
+            clone.textContent = '(' + cott + ')';
+            audioPlayerFileName.appendChild(clone);
+        }
+    }
 }
 
 a.forEach(el => {
@@ -34,14 +46,16 @@ a.forEach(el => {
         el.removeAttribute('href')
         el.classList = 'a';
         el.addEventListener('click', funcPlayAudio);
+    } else {
+        el.setAttribute('target', '_blank');
     }
 });
 
 const node = document.createElement('span');
 node.innerHTML = 'וידאו';
 document.querySelectorAll('tr').forEach(tr => {
-    if(tr.querySelectorAll('a').length < 3){
-        if(!tr.innerHTML.includes('וידאו')){
+    if (tr.querySelectorAll('a').length < 3) {
+        if (!tr.innerHTML.includes('וידאו')) {
             const clone = node.cloneNode(true);
             tr.querySelector('a').after(clone);
         }

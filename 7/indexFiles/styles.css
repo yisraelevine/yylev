@@ -146,4 +146,12 @@ a:visited {
     font-size: 20px;
     color: rgb(55, 55, 1);
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container>div>span {
+    margin-right: 5px;
+    font-size: 15px;
 }
