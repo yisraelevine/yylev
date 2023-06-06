@@ -113,6 +113,7 @@ table>tbody>tr>td>a {
     color: rgb(75, 75, 1);
     cursor: pointer;
     text-decoration: underline;
+    white-space: nowrap;
 }
 
 table>tbody>tr>td>span {

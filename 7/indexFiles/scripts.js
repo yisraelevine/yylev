@@ -12,17 +12,18 @@ tables.forEach(el => {
     el.style.display = 'none';
 });
 
-function funcBtnForDisolayChg() {
-    currentTable.style.display = 'none';
-    currentTable.parentElement.style.backgroundColor = 'rgb(120 114 34)';
-    currentTable = this.children[1];
-    currentTable.style.display = 'table';
-    currentTable.parentElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    currentTable.parentElement.style.backgroundColor = 'rgb(74, 69, 6)';
+function funcBtnForDisolayChg(event) {
+    if (event.target.tagName !== 'A') {
+        currentTable.style.display = 'none';
+        currentTable.parentElement.style.backgroundColor = 'rgb(120 114 34)';
+        currentTable = this.children[1];
+        currentTable.style.display = 'table';
+        currentTable.parentElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        currentTable.parentElement.style.backgroundColor = 'rgb(74, 69, 6)';
+    }
 }
 
 const nodeSpan = document.createElement('span');
-
 function funcPlayAudio() {
     audioPlayer.src = this.dataset.src;
     audioPlayerFileName.style.padding = '5px 10px';
@@ -61,4 +62,3 @@ document.querySelectorAll('tr').forEach(tr => {
         }
     };
 });
-
