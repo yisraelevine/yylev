@@ -1,4 +1,6 @@
-const audio = document.querySelector('audio');
+const audioPlayerContainer = document.querySelector('#container');
+const audioPlayer = audioPlayerContainer.querySelector('audio');
+const audioPlayerFileName = audioPlayerContainer.querySelector('div');
 const a = document.querySelectorAll('a');
 const tables = document.querySelectorAll('#main table');
 const trElements = document.querySelectorAll('tr');
@@ -20,7 +22,9 @@ function funcBtnForDisolayChg() {
 }
 
 function funcPlayAudio() {
-    audio.src = this.dataset.src;
+    audioPlayer.src = this.dataset.src;
+    audioPlayerFileName.innerHTML = this.parentNode.parentNode.children[0].innerHTML;
+    audioPlayerFileName.style.padding = '5px 10px';
 }
 
 a.forEach(el => {
