@@ -4,6 +4,8 @@ body {
     text-align: center;
     margin-bottom: 0;
     direction: rtl;
+    overflow-y: scroll;
+    height: 100vh;
 }
 
 body>div {
@@ -36,9 +38,12 @@ a {
     max-width: 600px;
 }
 
+#search-files>input::placeholder {
+    color: #3b645a;
+}
+
 #search-files>input {
-    font-size: 20px;
-    font-size: 20px;
+    font-size: 21px;
     background-color: #94dad1;
     color: #204038;
     border-color: #204038;
