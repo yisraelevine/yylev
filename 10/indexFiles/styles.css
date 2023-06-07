@@ -56,10 +56,12 @@ a {
 
 #files-links {
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-#files-links a div {
-    color: #204038;
+#files-links>a>div {
+    color: #19362f;
     font-size: 25px;
     font-family: Arial, serif;
     padding: 10px;
@@ -70,6 +72,11 @@ a {
     border-radius: 5px;
     margin-bottom: 8px;
     display: inline-block;
+}
+
+#files-links>a>div>mark {
+    background-color: #94dad1;
+    color: #19362f;
 }
 
 #other-links {
