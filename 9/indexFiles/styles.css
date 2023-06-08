@@ -2,41 +2,62 @@ html {
     direction: rtl;
 }
 
-body {
-    display: none;
-    flex-direction: row;
-    background-color: rgb(131, 131, 131);
-    justify-content: space-between;
+body>span {
+    color: rgb(53, 53, 53);
+    position: fixed;
+    top: 0;
+    right: 3px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+main-container {
+    background-color: rgb(129, 129, 129);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    padding: 20px;
+    display: flex;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+sides-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
     font-family: system-ui;
 }
 
-body>span {
-    position: absolute;
-    top: 0;
-    right: 0;
+right-side,
+left-side {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-main {
-    margin-top: 10px;
-    overflow: auto;
-    max-height: calc(100vh - 64px);
-    width: calc(50vw - 25px);
-    padding: 10px;
+right-side>div {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 5px;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 
-main::-webkit-scrollbar, exp-outer>exp-inner::-webkit-scrollbar {
-    background-color: rgb(204, 221, 226);
-    width: 10px;
-    border-radius: 3px;
-    outline: #051c35 2px solid;
-    overflow: hidden;
+right-side>div>div:not(:last-child) {
+    margin-bottom: 15px;
 }
 
-main::-webkit-scrollbar-thumb, exp-outer>exp-inner::-webkit-scrollbar-thumb {
-    background-color: rgb(6, 49, 63);
-}
-
-main>div {
+right-side>div>div {
     flex-direction: row;
     display: flex;
     align-items: baseline;
@@ -46,11 +67,7 @@ main>div {
     cursor: pointer;
 }
 
-main>div:not(:last-child) {
-    margin-bottom: 15px;
-}
-
-main>div>h2 {
+right-side>div>div>h2 {
     font-size: 32px;
     font-weight: bold;
     margin: 0;
@@ -58,23 +75,14 @@ main>div>h2 {
     line-height: 0;
 }
 
-main>div>p {
+right-side>div>div>p {
     font-size: 24px;
     text-align: justify;
     margin: 0;
     font-weight: 500;
 }
 
-exp-outer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: calc(50vw - 25px);
-    height: calc(100vh - 38px);
-    padding: 10px;
-}
-
-exp-outer>exp-inner {
+left-side>p-container {
     height: 100%;
     width: 100%;
     border-radius: 6px;
@@ -82,10 +90,11 @@ exp-outer>exp-inner {
     border: 3px rgb(70, 85, 80) solid;
     box-shadow: 0 0 40px -10px gray;
     transition-duration: .3s;
-    overflow-y: auto;
 }
 
-exp-outer>exp-inner>p {
+left-side>p-container>p {
+    width: 100%;
+    height: 100%;
     padding: 20px;
     font-size: 24px;
     text-align: justify;
@@ -95,4 +104,24 @@ exp-outer>exp-inner>p {
     word-spacing: 2px;
     letter-spacing: 1px;
     transition-duration: 800ms;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+right-side>div::-webkit-scrollbar,
+left-side>p-container>p::-webkit-scrollbar {
+    background-color: rgb(204, 221, 226);
+    width: 10px;
+    border-radius: 3px;
+    outline: #051c35 2px solid;
+    overflow: hidden;
+}
+
+right-side>div::-webkit-scrollbar-thumb,
+left-side>p-container>p::-webkit-scrollbar-thumb {
+    background-color: rgb(6, 49, 63);
+}
+
+p>div {
+    height: 8px;
 }

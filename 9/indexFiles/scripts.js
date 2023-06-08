@@ -1,10 +1,9 @@
 const sheetId = "1oz_UHSqdS7oszMsD42GgjBbgBy5sUn6tsMNo5qFPDy0";
 const urlSheets = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq`;
 
-const main = document.querySelector('main');
-const expOuter = document.querySelector('exp-outer');
-const expInner = expOuter.children[0];
-const expP = expInner.children[0];
+const div_element = document.querySelector('right-side>div');
+const p_container = document.querySelector('left-side>p-container');
+const p_element = p_container.querySelector('p');
 
 fetch(urlSheets).then(e => e.text()).then(e => {
     const data = JSON.parse(e.substring(47).slice(0, -2)).table.rows;
@@ -14,8 +13,8 @@ fetch(urlSheets).then(e => e.text()).then(e => {
 
     data.forEach(row => {
         const row0 = row.c[0]?.v || '';
-        const row1 = row.c[1]?.v?.replaceAll('\n', '<br>') || '';
-        const row2 = row.c[2]?.v?.replaceAll('\n', '<br>') || '';
+        const row1 = row.c[1]?.v?.replaceAll('\n', '<div></div>') || '';
+        const row2 = row.c[2]?.v?.replaceAll('\n', '<div></div>') || '';
         const node = div.cloneNode(true);
         const clone0 = h2.cloneNode(true)
         const clone1 = p.cloneNode(true)
@@ -37,7 +36,7 @@ fetch(urlSheets).then(e => e.text()).then(e => {
         node.appendChild(clone1);
         node.addEventListener('click', changeExp);
         node.dataset.exp = row2;
-        main.appendChild(node);
+        div_element.appendChild(node);
     });
     document.body.style.display = 'flex';
 });
@@ -49,17 +48,17 @@ let timeoutTime = 100;
 function changeExp() {
     if (currentDiv) {
         currentDiv.style.outlineStyle = 'none';
-        expP.style.opacity = 0;
+        p_element.style.opacity = 0;
         timeoutTime = 400;
     }
     currentDiv = this;
-    expInner.style.backgroundColor = currentDiv.style.backgroundColor;
-    expInner.style.color = currentDiv.style.color;
-    expInner.style.borderColor = currentDiv.style.color;
+    p_container.style.backgroundColor = currentDiv.style.backgroundColor;
+    p_element.style.color = currentDiv.style.color;
+    p_element.style.borderColor = currentDiv.style.color;
     currentDiv.style.outlineStyle = 'solid';
     setTimeout(function () {
-        expP.innerHTML = currentDiv.dataset.exp;
-        expP.style.opacity = 1;
+        p_element.innerHTML = currentDiv.dataset.exp;
+        p_element.style.opacity = 1;
         changeTextSelectionColor(currentDiv.style.color, currentDiv.style.backgroundColor);
     }, timeoutTime);
 }
