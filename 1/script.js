@@ -13,90 +13,95 @@ const mesora = document.getElementById("mesora");
 const kortov = document.getElementById("kortov");
 const cm = document.getElementById("cm");
 
-function calculator(num, id){
+document.querySelectorAll('input').forEach(el => {
+    el.setAttribute('min', 0);
+    el.setAttribute('type', 'number');
+});
+
+function calculator(num, id) {
     num = parseFloat(num);
-    if(id !== 1){
+    if (id !== 1) {
         cor.value = (num * 1).toFixed(2);
     }
-    if(id !== 2){
+    if (id !== 2) {
         letch.value = (num * 2).toFixed(2);
     }
-    if(id !== 3){
+    if (id !== 3) {
         eifa.value = (num * 10).toFixed(2);
     }
-    if(id !== 4){
+    if (id !== 4) {
         saha.value = (num * 30).toFixed(2);
     }
-    if(id !== 5){
+    if (id !== 5) {
         hin.value = (num * 60).toFixed(2);
     }
-    if(id !== 6){
+    if (id !== 6) {
         hisaron.value = (num * 100).toFixed(2);
     }
-    if(id !== 7){
+    if (id !== 7) {
         kab.value = (num * 180).toFixed(2);
     }
-    if(id !== 8){
+    if (id !== 8) {
         log.value = (num * 720).toFixed(2);
     }
-    if(id !== 9){
+    if (id !== 9) {
         rviait.value = (num * 2880).toFixed(2);
     }
-    if(id !== 10){
+    if (id !== 10) {
         egg.value = (num * 4320).toFixed(2);
     }
-    if(id !== 11){
+    if (id !== 11) {
         zait.value = (num * 8640).toFixed(2);
     }
-    if(id !== 12){
+    if (id !== 12) {
         mesora.value = (num * 25920).toFixed(2);
     }
-    if(id !== 13){
+    if (id !== 13) {
         kortov.value = (num * 46080).toFixed(2);
     }
-    if(id !== 14){
+    if (id !== 14) {
         cm.value = (num * 248832).toFixed(2);
     }
 }
-function cor_action(){
+function cor_action() {
     calculator(cor.value / 1, 1);
 }
-function letch_action(){
+function letch_action() {
     calculator(letch.value / 2, 2);
 }
-function eifa_action(){
+function eifa_action() {
     calculator(eifa.value / 10, 3);
 }
-function saha_action(){
+function saha_action() {
     calculator(saha.value / 30, 4);
 }
-function hin_action(){
+function hin_action() {
     calculator(hin.value / 60, 5);
 }
-function hisaron_action(){
+function hisaron_action() {
     calculator(hisaron.value / 100, 6);
 }
-function kab_action(){
+function kab_action() {
     calculator(kab.value / 180, 7);
 }
-function log_action(){
+function log_action() {
     calculator(log.value / 720, 8);
 }
-function rviait_action(){
+function rviait_action() {
     calculator(rviait.value / 2880, 9);
 }
-function egg_action(){
+function egg_action() {
     calculator(egg.value / 4320, 10);
 }
-function zait_action(){
+function zait_action() {
     calculator(zait.value / 8640, 11);
 }
-function mesora_action(){
+function mesora_action() {
     calculator(mesora.value / 25920, 12);
 }
-function kortov_action(){
+function kortov_action() {
     calculator(kortov.value / 46080, 13);
 }
-function cm_action(){
+function cm_action() {
     calculator(cm.value / 248832, 14);
 }
