@@ -8,14 +8,14 @@ body {
 }
 
 body>div {
+    text-align: center;
+    font-size: 28px;
     color: #cfeeff;
-    margin-bottom: 5px;
-    background-color: #1a5152;
-    padding: 6px 0 8px 0;
-    width: 100px;
+    margin-bottom: 8px;
     box-shadow: 0 0 15px 15px #4040404f;
+    font-weight: bold;
     background-color: cadetblue;
-    padding: 15px;
+    padding: 5px 50px;
     border-radius: 8px;
 }
 
