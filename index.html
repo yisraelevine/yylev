@@ -11,18 +11,18 @@
 </head>
 
 <body>
-    <header>ב"ה</header>
-    <nav>
-        <a href="1/">
-            <div>שיעורי נפח בהלכה</div>
-        </a>
-        <a href="2/">
-            <div>גימטריה</div>
-        </a>
-        <a href="3/">
-            <div>מחשבון</div>
-        </a>
-    </nav>
+    <div>ב"ה</div>
+    <nav></nav>
+    <script>
+        const nav = document.querySelector('nav');
+        const node = document.createElement('a');
+        for (let i = 1; i <= 12; i++) {
+            const clone = node.cloneNode(true);
+            clone.innerHTML = i;
+            clone.href = i + '/';
+            nav.appendChild(clone);
+        }
+    </script>
 </body>
 
 </html>
