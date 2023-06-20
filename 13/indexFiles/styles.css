@@ -1,0 +1,14 @@
+body {
+    background: linear-gradient(0deg, rgba(100, 158, 158, 0.85) 10%, rgba(132, 182, 180) 90%);
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 0;
+    direction: rtl;
+    overflow-y: scroll;
+}
+
+body>div {
+    margin: 6px 0;
+    display: inline-block;
+    width: 100%;
+}
