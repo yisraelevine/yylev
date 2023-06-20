@@ -1,66 +1,83 @@
 body {
+    direction: rtl;
     background-color: #7d6c37;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-body>header {
+body>div {
     color: #332c17;
     font-weight: bolder;
     font-size: 38px;
 }
 
-body>div {
-    display: inline-block;
+body>div::selection {
+    color: #7d6c37;
+    background-color: #332c17;
+}
+
+body>main {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    text-align: right;
     max-width: 600px;
 }
 
-body>div>div {
-    text-align: justify;
+body>main>div {
+    display: flex;
     box-sizing: border-box;
-    background-color: #6b6443;
-    color: #2c2516;
     border-radius: 5px;
-    border: 2px solid #0d2734;
+    border: 2px solid #252102;
     padding: 0;
     font-size: 40px;
-    margin: 6px 0;
     width: 100%;
+    overflow: hidden;
 }
 
-body>div>div>input {
+body>main>div:not(:last-child) {
+    margin-bottom: 6px;
+}
+
+body>main>div>label {
+    display: flex;
+    direction: rtl;
+    text-align: center;
     box-sizing: border-box;
-    background-color: #6b6443;
     color: #2c2516;
-    border: 0;
+    background-color: #7c754f;
+    font-weight: bold;
+    font-size: 35px;
+    min-width: min-content;
+    width: 200px;
+    padding: 0 10px 5px 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+body>main>div>label::selection {
+    color: #7c754f;
+    background-color: #2c2516;
+}
+
+body>main>div>input {
+    box-sizing: border-box;
+    color: #2c2516;
+    background-color: #6d6542;
+    border: none;
     padding: 20px;
     font-size: 40px;
-    width: 70%;
+    width: 100%;
     outline: none;
+    direction: ltr;
 }
 
-body>div>div>label {
-    text-align: center;
-    direction: rtl;
-    box-sizing: border-box;
-    color: #2c2516;
-    font-weight: bold;
-    font-size: 30px;
-    width: 30%;
-    float: right;
-    padding: 0 10px;
-    background-color: rgba(124, 117, 79, 0.5);
-    height: 85px;
-    line-height: 70px;
+body>main>div>input::selection {
+    color: #6d6542;
+    background-color: #2c2516;
 }
 
-body>div>div>label>span {
-    line-height: 1.1;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-body>div>div>input::-webkit-inner-spin-button {
+body>main>div>input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
