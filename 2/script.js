@@ -1,4 +1,4 @@
-translator = {
+const object = {
     'א': 1,
     'ב': 2,
     'ג': 3,
@@ -28,17 +28,12 @@ translator = {
     'ת': 400,
 }
 
-const output = document.getElementById('output');
-const theInput = document.getElementById('theInput');
+input.addEventListener('input', calculateSum);
 
-function makeGim() {
+function calculateSum() {
     let sum = 0;
-    const word = (theInput.value).toString();
-    Array.from(word).forEach(element => {
-        const num = translator?.[element];
-        if (isFinite(num)) {
-            sum += +num;
-        }
+    Array.from(input.value).forEach(el => {
+        sum += object[el] || 0;
     });
-    output.innerText = sum.toString();
+    output.textContent = sum.toString();
 }

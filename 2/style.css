@@ -1,21 +1,23 @@
 body {
-    background-color: #0f533a;
-    color: #00291c;
-    margin: 0;
+    direction: rtl;
+    background-color: #4a8a72;
     display: flex;
     justify-content: center;
 }
 
-body>div {
+body>main {
     display: flex;
-    margin: 10px;
     flex-direction: column;
-    align-items: flex-end;
+    max-width: 100%;
 }
 
-body>div>div.first {
+body>main>div:first-child {
     display: flex;
-    width: max-content;
+    justify-content: flex-start;
+}
+
+body>main>div:first-child>div {
+    display: flex;
     color: #002016;
     flex-direction: column;
     align-items: center;
@@ -24,38 +26,37 @@ body>div>div.first {
     margin-right: 10px;
 }
 
-body>div>div.first>span {
+body>main>div:first-child>div>span {
     font-size: 20px;
 }
 
-body>div>div.first>label {
+body>main>div:first-child>div>label {
     font-size: 30px;
 }
 
-body>div>input {
-    width: 100%;
+body>main>input {
     margin: 10px 0;
-    padding: 12px;
-    background-color: #229c70;
+    padding: 10px 15px;
+    font-size: 40px;
     color: #00291c;
+    background-color: #64a68d;
     border: #063222 solid 2px;
     border-radius: 6px;
-    font-size: 45px;
-    direction: rtl;
     box-sizing: border-box;
     outline: none;
 }
 
-body>div>div.second {
-    width: 100%;
+body>main>div:last-child {
+    display: flex;
+    justify-content: flex-end;
 }
 
-body>div>div.second>span {
-    display: block;
+body>main>div:last-child>div {
     width: max-content;
     min-width: 80px;
     padding: 10px 20px;
-    background-color: #229c70;
+    background-color: #64a68d;
+    color: #013626;
     border: #063222 solid 2px;
     font-size: 40px;
     text-align: center;
