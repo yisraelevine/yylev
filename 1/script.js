@@ -1,18 +1,18 @@
 const array = [
-    ['cor', 1, 'כור'],
-    ['letch', 2, 'לתך'],
-    ['eifa', 10, 'איפה'],
-    ['saha', 30, 'סאה'],
-    ['hin', 60, 'תרקב - הין'],
-    ['hisaron', 100, 'עשרון'],
-    ['kab', 180, 'קב'],
-    ['log', 720, 'לוג'],
-    ['rviait', 2880, 'רביעית'],
-    ['egg', 4320, 'ביצה'],
-    ['zait', 8640, 'כזית'],
-    ['mesora', 25920, 'משורה'],
-    ['kortov', 46080, 'קורטוב'],
-    ['cm', 248832, 'ס"מ מעוקב']
+    [1, 'כור'],
+    [2, 'לתך'],
+    [10, 'איפה'],
+    [30, 'סאה'],
+    [60, 'תרקב - הין'],
+    [100, 'עשרון'],
+    [180, 'קב'],
+    [720, 'לוג'],
+    [2880, 'רביעית'],
+    [4320, 'ביצה'],
+    [8640, 'כזית'],
+    [25920, 'משורה'],
+    [46080, 'קורטוב'],
+    [248832, 'ס"מ מעוקב']
 ]
 
 const main = document.querySelector('main');
@@ -29,11 +29,8 @@ array.forEach(el => {
     const cloneLabel = nodeLabel.cloneNode(true);
     const cloneInput = nodeInput.cloneNode(true);
 
-    cloneLabel.setAttribute('for', el[0]);
-    cloneLabel.innerHTML = el[2];
-
-    cloneInput.id = el[0];
-    cloneInput.dataset.id = el[1];
+    cloneLabel.innerHTML = el[1];
+    cloneInput.dataset.id = el[0];
     cloneInput.addEventListener('input', calculator);
 
     cloneDiv.appendChild(cloneLabel);
@@ -44,10 +41,10 @@ array.forEach(el => {
 const input = document.querySelectorAll('input');
 
 function calculator() {
-    const num = parseFloat(this.value) / this.dataset.id;
+    const num = this.value / this.dataset.id;
     input.forEach(el => {
         if (this !== el) {
-            el.value = (num * Number(el.dataset.id)).toFixed(2);
+            el.value = (num * el.dataset.id).toFixed(2);
         }
     });
 }

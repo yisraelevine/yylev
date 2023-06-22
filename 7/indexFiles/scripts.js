@@ -53,12 +53,21 @@ a.forEach(el => {
 });
 
 const node = document.createElement('span');
-node.innerHTML = 'וידאו';
+
 document.querySelectorAll('tr').forEach(tr => {
-    if (tr.querySelectorAll('a').length < 3) {
-        if (!tr.innerHTML.includes('וידאו')) {
-            const clone = node.cloneNode(true);
-            tr.querySelector('a').after(clone);
-        }
+    if (!tr.innerText.includes('אודיו')) {
+        const clone = node.cloneNode(true);
+        clone.innerHTML = 'אודיו';
+        tr.lastElementChild.prepend(clone);
+    };
+    if (!tr.innerText.includes('וידאו')) {
+        const clone = node.cloneNode(true);
+        clone.innerHTML = 'וידאו';
+        tr.querySelector('a').after(clone);
+    };
+    if (!tr.innerText.includes('דף עזר')) {
+        const clone = node.cloneNode(true);
+        clone.innerHTML = 'דף עזר';
+        tr.lastElementChild.appendChild(clone);
     };
 });

@@ -117,7 +117,13 @@ table>tbody>tr>td>a {
     white-space: nowrap;
 }
 
-table>tbody>tr>td>span {
+table>tbody>tr>td>span:first-child,
+table>tbody>tr>td>span:last-child {
+    visibility: hidden;
+    padding-left: 0;
+}
+
+table>tbody>tr>td>span:nth-child(2) {
     visibility: hidden;
     padding-left: 6px;
 }
