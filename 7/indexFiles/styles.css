@@ -4,7 +4,7 @@ body {
     align-items: center;
     background: linear-gradient(0deg, rgba(76, 145, 143, 1) 0%, rgba(126, 195, 193, 1) 50%, rgb(93, 143, 142) 100%);
     direction: rtl;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body>div:first-of-type {
@@ -67,6 +67,10 @@ main>h1 {
     color: rgb(37 35 1);
 }
 
+main {
+    max-width: 100%;
+}
+
 main>div {
     box-shadow: 0 0 12px 4px rgb(56, 56, 56);
     padding: 6px;
@@ -76,8 +80,14 @@ main>div {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    min-width: 400px;
+    max-width: 100%;
 }
+
+main>div.selected {
+    background-color: rgb(60, 50, 0);
+    cursor: default;
+}
+
 
 main>div:not(:last-child) {
     margin-bottom: 7px;
@@ -87,8 +97,10 @@ main>div>div {
     font-size: 28px;
     letter-spacing: 1px;
     text-align: center;
-    color: rgb(230, 230, 195);
+    color: rgb(241, 241, 208);
     padding: 0 7px;
+    width: 400px;
+    max-width: 100%;
 }
 
 main>div>div::selection {
@@ -109,15 +121,56 @@ main table {
     display: none;
 }
 
+main>div.selected>table {
+    display: table;
+}
+
 main table>tbody>tr>td {
     display: table-cell;
-    background-color: rgb(230, 230, 195);
+    background-color: rgb(240, 240, 186);
     padding: 3px 6px;
     border-style: solid;
     border-width: 1px;
     border-color: rgb(70, 70, 8) rgb(120, 120, 36) rgb(120, 120, 36) rgb(70, 70, 8);
-    font-size: 20px;
-    color: rgb(75, 75, 1);
+    font-size: 22px;
+    color: rgb(59, 59, 2);
+    transition-duration: 1s;
+}
+
+@media screen and (max-width: 300px) {
+    main table>tbody>tr>td {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 350px) {
+    main table>tbody>tr>td {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 400px) {
+    main table>tbody>tr>td {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 450px) {
+    main table>tbody>tr>td {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 500px) {
+    main table>tbody>tr>td {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    main table>tbody>tr>td {
+        font-size: 22px;
+    }
 }
 
 main table>tbody>tr>td:first-child {
@@ -158,8 +211,8 @@ main table>tbody>tr>td>span:nth-child(2) {
     margin-top: 8px;
     border-radius: 10px;
     box-shadow: 0 0 20px 10px #4e4e4e57;
-    min-width: 400px;
-    width: max-content;
+    width: 400px;
+    max-width: 100%;
     background-color: rgb(230, 230, 195);
     border: 2px rgb(54, 79, 0) solid;
 }

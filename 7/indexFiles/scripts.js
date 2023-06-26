@@ -1,28 +1,32 @@
-const audio = new Object;
+const audio = {};
+const main = {};
 
 audio.container = document.querySelector('#container');
 audio.player = audio.container.querySelector('audio');
 audio.name = audio.container.querySelector('div');
 
-const a = document.querySelectorAll('main a');
-const tables = document.querySelectorAll('main table');
-const tr = document.querySelectorAll('main tr');
+main.container = document.querySelector('main');
+main.table = main.container.querySelectorAll('table');
+main.tr = main.container.querySelectorAll('tr');
+main.a = main.container.querySelectorAll('a');
+
 const node = document.createElement('span');
 
-let currentTable = tables[0];
+let currentTable;
 
-tables.forEach(el => {
-    el.parentElement.addEventListener('click', funcBtnForDisolayChg);
+main.table.forEach(el => {
+    el.parentElement.addEventListener('click', funcChangeTableShown);
 });
 
-function funcBtnForDisolayChg(event) {
+function funcChangeTableShown(event) {
+    const thisTable = this.querySelector('table');
+    if (currentTable !== thisTable) {
+        currentTable?.parentElement.removeAttribute('class');
+        currentTable = thisTable;
+        currentTable.parentElement.setAttribute('class', 'selected');
+    }
     if (event.target.tagName !== 'A') {
-        currentTable.style.display = 'none';
-        currentTable.parentElement.style.backgroundColor = 'rgb(120 114 34)';
-        currentTable = this.children[1];
-        currentTable.style.display = 'table';
         currentTable.parentElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        currentTable.parentElement.style.backgroundColor = 'rgb(74, 69, 6)';
     }
 }
 
@@ -42,7 +46,7 @@ function funcPlayAudio() {
     }
 }
 
-a.forEach(el => {
+main.a.forEach(el => {
     if (el.href.slice(-3) === 'mp3') {
         el.setAttribute('name', el.href);
         el.removeAttribute('href')
@@ -53,7 +57,7 @@ a.forEach(el => {
     }
 });
 
-tr.forEach(el => {
+main.tr.forEach(el => {
     if (!el.innerText.includes('אודיו')) {
         const clone = node.cloneNode(true);
         clone.innerHTML = 'אודיו';
