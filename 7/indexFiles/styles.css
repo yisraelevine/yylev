@@ -9,7 +9,7 @@ body {
 
 body>div:first-of-type {
     font-size: 34px;
-    border: 7px outset black;
+    border: 7px outset rgb(0, 0, 0);
     color: #032b2a;
     padding: 10px;
     font-weight: bold;
@@ -19,7 +19,7 @@ body>div:first-of-type {
     text-align: center;
 }
 
-nav {
+nav:nth-of-type(1) {
     border-width: 1px;
     border-style: solid;
     border-color: gray black black gray;
@@ -28,7 +28,7 @@ nav {
     margin: 10px 0;
 }
 
-nav>a {
+nav:nth-of-type(1)>a {
     display: block;
     padding: 3px 6px;
     border-width: 1px;
@@ -40,11 +40,34 @@ nav>a {
     color: #032b2a;
 }
 
-nav:last-child a {
-    text-align: right;
+nav:nth-of-type(2)>a {
+    box-shadow: 0 0 12px 4px rgb(56, 56, 56);
+    padding: 6px;
+    border: 3px rgb(92, 202, 219) solid;
+    background-color: rgb(29, 108, 110);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    min-width: 400px;
+    font-size: 28px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: rgb(195, 220, 230);
+    text-decoration: none;
 }
 
-#main>div {
+nav:nth-of-type(2)>a:not(:last-child) {
+    margin-bottom: 7px;
+}
+
+main>h1 {
+    margin: 10px 0;
+    text-align: center;
+    color: rgb(37 35 1);
+}
+
+main>div {
     box-shadow: 0 0 12px 4px rgb(56, 56, 56);
     padding: 6px;
     border: 3px rgb(209, 209, 82) solid;
@@ -56,11 +79,11 @@ nav:last-child a {
     min-width: 400px;
 }
 
-#main>div:not(:last-child) {
+main>div:not(:last-child) {
     margin-bottom: 7px;
 }
 
-#main>div>div:first-child {
+main>div>div {
     font-size: 28px;
     letter-spacing: 1px;
     text-align: center;
@@ -68,7 +91,12 @@ nav:last-child a {
     padding: 0 7px;
 }
 
-#main>div>table {
+main>div>div::selection {
+    color: rgb(75, 75, 1);
+    background-color: rgb(218, 218, 166);
+}
+
+main table {
     margin-top: 7px;
     background-color: rgb(218, 218, 166);
     border-style: solid;
@@ -78,20 +106,10 @@ nav:last-child a {
     transition-duration: .1s;
     max-width: max-content;
     cursor: default;
+    display: none;
 }
 
-#main>div>div::selection {
-    color: rgb(75, 75, 1);
-    background-color: rgb(218, 218, 166);
-}
-
-#main>div>table>tbody>tr>td::selection,
-#main>div>table>tbody>tr>td>a::selection {
-    background-color: rgb(75, 75, 1);
-    color: rgb(218, 218, 166);
-}
-
-#main>div>table>tbody>tr>td {
+main table>tbody>tr>td {
     display: table-cell;
     background-color: rgb(230, 230, 195);
     padding: 3px 6px;
@@ -102,34 +120,36 @@ nav:last-child a {
     color: rgb(75, 75, 1);
 }
 
-#main>div>table>tbody>tr>td:first-child {
+main table>tbody>tr>td:first-child {
     font-weight: bold;
 }
 
-#main>div>table>tbody>tr>td:nth-child(2) {
+main table>tbody>tr>td:nth-child(2) {
     text-align: center;
 }
 
-table>tbody>tr>td>a {
+main table>tbody>tr>td>a {
     color: rgb(75, 75, 1);
     cursor: pointer;
     text-decoration: underline;
     white-space: nowrap;
 }
 
-table>tbody>tr>td>span:first-child,
-table>tbody>tr>td>span:last-child {
+main table>tbody>tr>td::selection,
+main table>tbody>tr>td>a::selection {
+    background-color: rgb(75, 75, 1);
+    color: rgb(218, 218, 166);
+}
+
+main table>tbody>tr>td>span:first-child,
+main table>tbody>tr>td>span:last-child {
     visibility: hidden;
     padding-left: 0;
 }
 
-table>tbody>tr>td>span:nth-child(2) {
+main table>tbody>tr>td>span:nth-child(2) {
     visibility: hidden;
     padding-left: 6px;
-}
-
-a:visited {
-    color: rgb(75, 75, 1);
 }
 
 #container {
@@ -162,4 +182,8 @@ a:visited {
 #container>div>span {
     margin-right: 5px;
     font-size: 15px;
+}
+
+a:visited {
+    color: rgb(75, 75, 1);
 }

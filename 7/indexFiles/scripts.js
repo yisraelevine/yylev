@@ -1,15 +1,18 @@
-const audioPlayerContainer = document.querySelector('#container');
-const audioPlayer = audioPlayerContainer.querySelector('audio');
-const audioPlayerFileName = audioPlayerContainer.querySelector('div');
-const a = document.querySelectorAll('a');
-const tables = document.querySelectorAll('#main table');
-const trElements = document.querySelectorAll('tr');
+const audio = new Object;
+
+audio.container = document.querySelector('#container');
+audio.player = audio.container.querySelector('audio');
+audio.name = audio.container.querySelector('div');
+
+const a = document.querySelectorAll('main a');
+const tables = document.querySelectorAll('main table');
+const tr = document.querySelectorAll('main tr');
+const node = document.createElement('span');
+
 let currentTable = tables[0];
 
 tables.forEach(el => {
     el.parentElement.addEventListener('click', funcBtnForDisolayChg);
-    el.style.display = 'table';
-    el.style.display = 'none';
 });
 
 function funcBtnForDisolayChg(event) {
@@ -23,26 +26,24 @@ function funcBtnForDisolayChg(event) {
     }
 }
 
-const nodeSpan = document.createElement('span');
 function funcPlayAudio() {
-    audioPlayer.src = this.dataset.src;
-    audioPlayerFileName.style.padding = '5px 10px';
+    audio.player.src = this.name;
+    audio.name.style.padding = '5px 10px';
     let cot = this.parentNode.parentNode;
-    audioPlayerFileName.innerHTML = cot.children[0].innerHTML;
+    audio.name.innerHTML = cot.children[0].innerHTML;
     while (cot.children[0].innerHTML === 'בענין הנ"ל') {
         cot = cot.previousElementSibling;
         const cott = cot.children[0].innerHTML;
         if (cott !== 'בענין הנ"ל') {
-            const clone = nodeSpan.cloneNode(true);
+            const clone = node.cloneNode(true);
             clone.textContent = '(' + cott + ')';
-            audioPlayerFileName.appendChild(clone);
+            audio.name.appendChild(clone);
         }
     }
 }
 
 a.forEach(el => {
     if (el.href.slice(-3) === 'mp3') {
-        el.dataset.src = el.href;
         el.setAttribute('name', el.href);
         el.removeAttribute('href')
         el.classList = 'a';
@@ -52,22 +53,20 @@ a.forEach(el => {
     }
 });
 
-const node = document.createElement('span');
-
-document.querySelectorAll('tr').forEach(tr => {
-    if (!tr.innerText.includes('אודיו')) {
+tr.forEach(el => {
+    if (!el.innerText.includes('אודיו')) {
         const clone = node.cloneNode(true);
         clone.innerHTML = 'אודיו';
-        tr.lastElementChild.prepend(clone);
+        el.lastElementChild.prepend(clone);
     };
-    if (!tr.innerText.includes('וידאו')) {
+    if (!el.innerText.includes('וידאו')) {
         const clone = node.cloneNode(true);
         clone.innerHTML = 'וידאו';
-        tr.querySelector('a').after(clone);
+        el.querySelector('a').after(clone);
     };
-    if (!tr.innerText.includes('דף עזר')) {
+    if (!el.innerText.includes('דף עזר')) {
         const clone = node.cloneNode(true);
         clone.innerHTML = 'דף עזר';
-        tr.lastElementChild.appendChild(clone);
+        el.lastElementChild.appendChild(clone);
     };
 });
