@@ -123,18 +123,18 @@ function funcOnBtnClick() {
 
     if (btn.parentElement.parentElement.classList.contains('elementor-element-6a33bb9') && btn !== allStories.buttons[0]) {
         popup1.next.style.display = 'flex';
+        btnN = btn.previousElementSibling || btn.parentElement.parentElement.previousElementSibling.children[0].children[9];
     } else {
         popup1.next.style.display = 'none';
     }
 
     if (btn.parentElement.parentElement.classList.contains('elementor-element-6a33bb9') && btn !== allStories.buttons.slice(-1)[0]) {
         popup1.previous.style.display = 'flex';
+        btnP = btn.nextElementSibling || btn.parentElement.parentElement.nextElementSibling.children[0].children[0];
     } else {
         popup1.previous.style.display = 'none';
     }
 
-    btnN = btn.previousElementSibling || btn.parentElement.parentElement.previousElementSibling.children[0].children[9];
-    btnP = btn.nextElementSibling || btn.parentElement.parentElement.nextElementSibling.children[0].children[0];
 };
 
 function audioEnded() {
