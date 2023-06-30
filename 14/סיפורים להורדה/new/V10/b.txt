@@ -1,0 +1,97 @@
+<script>
+document.getElementById("all_buttons_container").getElementsByClassName("elementor-container")[0].style.display = "none";
+window.onload=function(){
+////////////////////////////////////////////////////////////
+document.getElementById("nav_show").addEventListener('mousedown', navShow);
+window.addEventListener('scroll', function(){
+    if(time){
+        setTimeout(function(){
+            side_nav.style.zIndex = -1;
+            side_search.style.zIndex = -1;            
+        }, 300);
+        side_nav.classList.toggle("hidet");
+        side_search.classList.toggle("hidet");
+        time = false;
+    }
+});
+////////////////////////////////////////////////////////////
+    var node = document.getElementById("all_buttons_container").children[0].children[0];    
+    for(let i = 0; i < Math.floor(list[0].length / 10); i++){
+        const clone = node.cloneNode(true);
+        document.getElementById("all_buttons_container").children[0].appendChild(clone);
+    }
+////////////////////////////////////////////////////////////    
+    var x = 0;
+    const nav_container = document.getElementById("nav");
+    node = nav_container.getElementsByClassName("elementor-widget-button")[0];
+    node.remove();
+    for(i = 0; i < document.getElementById("all_buttons_container").children[0].children.length; i++){
+        if(i%5 === 0){
+            const clone = node.cloneNode(true);
+            nav_container.getElementsByClassName("elementor-widget-wrap")[0].appendChild(clone);
+            nav_container.getElementsByClassName("elementor-widget-button")[x].addEventListener("mousedown", funcScroll);
+            nav_container.getElementsByClassName("elementor-widget-button")[x].setAttribute("nav-id", x+1); 
+            nav_container.getElementsByClassName("elementor-widget-button")[x].getElementsByClassName("elementor-button-text")[0].innerText = x+1;
+            x++;
+            document.getElementById("all_buttons_container").children[0].children[i].id = x;
+        }
+    }
+/////////////////////////////////////////////////////////////
+    var x = 10 - (list[0].length % 10);
+    for(let i = 0; i < x; i++){
+        document.getElementsByClassName("elementor-widget-button")[document.getElementsByClassName("elementor-widget-button").length -1].remove();
+    }    
+    var button;
+    for(let i = 0; i < list[0].length; i++){
+        button = document.getElementById("all_buttons_container").getElementsByClassName("elementor-widget-button")[i];
+
+        button.getElementsByClassName("elementor-button-text")[0].innerText = list[0][i];
+        button.setAttribute("data-source",funcUrl(list[1][i]));
+        button.addEventListener('mousedown', funcAll);
+    }
+document.getElementById("all_buttons_container").getElementsByClassName("elementor-container")[0].style.display = "flex";
+//////////////////////////////////////////////////////////////
+        jQuery( document ).on( 'elementor/popup/show', () => {
+        // name
+        document.getElementById("StoryNameOnPopup").getElementsByTagName("h2")[0].innerText = btn.getElementsByClassName("elementor-button-text")[0].innerText;
+        // short link
+        short_link = "https://docs.google.com/uc?export=download&id=" + btn.getAttribute("data-source");
+        // long link
+        long_link = "https://www.googleapis.com/drive/v3/files/" + btn.getAttribute("data-source")
+        + "?alt=media&key=AIzaSyCj9vJ33UW--zxksFMVzPfMLIB1H1X0T1s";
+        // player source
+        document.getElementById("player").children[0].src = short_link;
+        document.getElementById("player").children[1].src = long_link;
+
+        // download button
+        document.getElementsByClassName("elementor-location-popup")[0].getElementsByClassName("elementor-button")[0].href = short_link;
+    });
+
+////////////////////////////////////////////////////////////////
+    var nav;
+    function funcScroll(){
+        nav = this;
+        document.getElementById(nav.getAttribute("nav-id")).scrollIntoView({behavior: "smooth", block: "center", inline: "center"})
+    }
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+    var container = document.getElementsByClassName("heading_container");
+    var button_in_container;
+    var button;
+    for(let i = 0; i < container.length; i++){
+        button_in_container = container[i].getElementsByClassName("elementor-widget-button");
+        for(let x = 0; x < button_in_container.length; x++){
+            // setting button
+            button = container[i].getElementsByClassName("elementor-widget-button")[x];
+            // adding event listener to button
+            button.addEventListener('mousedown', funcAll);
+            // setting url
+            url = funcUrl(button.getElementsByTagName("a")[0].href);
+            button.setAttribute("data-source", url);
+            button.getElementsByTagName("a")[0].href = "#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjY0NTkiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D";
+        }
+    }
+/////////////////////////////////////////////////////////////////
+console.log("100%");
+}
+</script>
