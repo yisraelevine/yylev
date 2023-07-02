@@ -64,19 +64,18 @@ window.addEventListener('scroll', function () {
 
 
 function funcUrl(url) {
-    url = url?.replace('https://docs.google.com/uc?export=download&id=', '') || '';
-    url = url.replace('https://drive.google.com/a/student.hartnell.edu/file/d/', '');
-    url = url.replace('https://drive.google.com/open?id=', '');
-    url = url.replace('https://drive.google.com/file/d/', '');
-    url = url.replace('http://', '');
-    url = url.replace('&authuser=0&usp=drive_link', '');
-    url = url.replace('/view?usp=share_link', '');
-    url = url.replace('/view?usp=sharing', '');
-    url = url.replace('?usp=drive_link', '');
-    url = url.replace('?usp=drivesdk', '');
-    url = url.replace('/view', '');
-    url = url.replace('/', '');
-    return url;
+    return url.replace('https://docs.google.com/uc?export=download&id=', '')
+        .replace('https://drive.google.com/a/student.hartnell.edu/file/d/', '')
+        .replace('https://drive.google.com/open?id=', '')
+        .replace('https://drive.google.com/file/d/', '')
+        .replace('http://', '')
+        .replace('&authuser=0&usp=drive_link', '')
+        .replace('/view?usp=share_link', '')
+        .replace('/view?usp=sharing', '')
+        .replace('?usp=drive_link', '')
+        .replace('?usp=drivesdk', '')
+        .replace('/view', '')
+        .replace('/', '');
 }
 
 function funcUrlDB(url) {
@@ -199,9 +198,17 @@ fetch(urlSheets).then(res => res.text()).then(rep => {
     data.rows.forEach(row => {
         row = row.c;
         if (row[0]?.v.includes('*')) {
-            dataNew.push([row[0]?.v.replace('*', ''), row[1]?.v, row[2]?.v]);
+            dataNew.push([
+                row[0]?.v.replace('*', '') || '',
+                row[1]?.v || '',
+                row[2]?.v || ''
+            ]);
         } else {
-            dataAll.push([row[0]?.v || '', row[1]?.v || '', row[2]?.v || '']);
+            dataAll.push([
+                row[0]?.v || '',
+                row[1]?.v || '',
+                row[2]?.v || ''
+            ]);
         }
     });
 }).then(() => {
@@ -233,7 +240,7 @@ fetch(urlSheets).then(res => res.text()).then(rep => {
         allStories.leftover.forEach(el => el.remove());
     }
 
-    
+
     for (let i = 0; i < dataAll.length; i++) {
         const button = allStories.buttons[dataAll.length - i - 1];
         if (dataAll[i][0] === undefined) {
