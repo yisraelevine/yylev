@@ -55,7 +55,9 @@ window.addEventListener('scroll', function () {
         side_nav.style.opacity = 0;
         side_search.style.opacity = 0;
         navIsShown = false;
-        document.querySelector('.search-in-place')?.style.visibility = 'hidden';
+        if (document.querySelector('.search-in-place')) {
+            document.querySelector('.search-in-place').style.visibility = 'hidden';
+        }
     }
 });
 
