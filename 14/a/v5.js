@@ -158,7 +158,9 @@ function funcNavShow() {
         navIsShown = true;
     }
     setTimeout(function () {
-        document.querySelector('.search-in-place')?.style.visibility = 'visible';
+        if (document.querySelector('.search-in-place')) {
+            document.querySelector('.search-in-place').style.visibility = 'visible';
+        }
     }, 800);
 }
 
