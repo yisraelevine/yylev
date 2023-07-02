@@ -84,7 +84,7 @@ function funcUrlDB(url) {
 }
 
 function funcAll() {
-    if (btn !== undefined) {
+    if (btn) {
         btn.children[0].style.backgroundColor = '';
     }
     btn = this;
