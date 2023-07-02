@@ -129,6 +129,9 @@ function funcOnBtnClick() {
         } else {
             popup1.previous.style.display = 'none';
         }
+    } else {
+        popup1.previous.style.display = 'none';
+        popup1.next.style.display = 'none';
     }
 
     btn.children[0].style.backgroundColor = 'rgb(15,59,89)';
