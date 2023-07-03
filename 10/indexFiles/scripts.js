@@ -1,22 +1,20 @@
-const inputBox = document.querySelector('#search-files>input');
-const filesNames = document.querySelectorAll('#files-links div');
+const input = document.querySelector('#search-files>input');
+const a = document.querySelectorAll('#files-links>a');
 
-inputBox.addEventListener('input', searchFiles);
+input.addEventListener('input', searchFiles);
 
 function searchFiles() {
-    const inVal = this.value;
-    filesNames.forEach(el => {
-        const iT = el.innerText;
-        const i = iT.search(inVal);
-        const inValLength = inVal.length;
-        if (i === -1) {
-            //el.style.display = 'none';
-            el.innerHTML = iT;
-            el.parentElement.style.order = 0;
+    const value = this.value;
+    a.forEach(el => {
+        const text = el.innerText;
+        const position = text.search(value);
+        const length = value.length;
+        if (position === -1) {
+            el.style.order = 0;
+            el.innerHTML = text;
         } else {
-            el.parentElement.style.order = -1;
-            //el.style.display = 'inline-block';
-            el.innerHTML = iT.slice(0, i) + '<mark>' + iT.slice(i, i + inValLength) + '</mark>' + iT.slice(i + inValLength);
+            el.style.order = -1;
+            el.innerHTML = text.slice(0, position) + '<mark>' + text.slice(position, position + length) + '</mark>' + text.slice(position + length);
         }
     });
 }
