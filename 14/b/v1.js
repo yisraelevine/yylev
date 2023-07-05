@@ -1,5 +1,6 @@
 const myCommentsID = document.querySelector('#myCommentsID>.e-con-inner');
 const comments = Array.from(document.querySelector('.page-content #comments .comment-list').children);
+const commentsLength = comments.length;
 const commentTextbox = document.querySelector('.page-content #comment');
 const node = myCommentsID.children[0];
 const spanNode = document.createElement('span');
@@ -7,7 +8,7 @@ spanNode.setAttribute('class', 'loadmore32');
 spanNode.innerText = 'עוד';
 node.remove();
 
-for (let i = 0; i < comments.length; i++) {
+for (let i = 0; i < commentsLength; i++) {
     const el = comments.pop();
     const clone = node.cloneNode(true);
     const time = el.querySelector('time').innerText.split(' –', 2);
