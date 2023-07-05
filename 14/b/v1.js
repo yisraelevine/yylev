@@ -27,7 +27,6 @@ for (let i = 0; i < commentsLength; i++) {
         clone.querySelector('p').appendChild(spanClone);
     }
     myCommentsID.appendChild(clone);
-    console.log(comments.length);
 }
 
 commentTextbox.setAttribute('placeholder', 'כל התגובות עוברות לאישור אין טעם לשלוח יותר מפעם אחת תגובה לא מתאימה תוסר');
