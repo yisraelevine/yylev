@@ -1,0 +1,102 @@
+<div id="custom-search">
+    <input oninput="findStories()" placeholder="חיפוש">
+    <div></div>
+</div>
+<style>
+    #custom-search input {
+        width: 100%;
+        background-color: #a7c7e3;
+        color: #143D5A;
+        font-weight: bold;
+        outline: none;
+        border: none;
+        border-radius: 2px;
+    }
+
+    #custom-search>div {
+        max-height: 300px;
+        overflow: scroll;
+        border-radius: 2px;
+    }
+
+    #custom-search>div::-webkit-scrollbar {
+        display: none;
+    }
+
+    #custom-search>div>div {
+        background-color: #a7c7e3;
+        color: #143D5A;
+        padding: 1px 5px;
+        border-radius: 2px;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    #custom-search>div>div:not(:last-child) {
+        margin-bottom: 4px;
+    }
+
+    #all_buttons_container .elementor-button-text>mark {
+        background-color: #b4dce5db;
+        padding: 1px 7px 2px;
+        font-weight: bold;
+        border-radius: 5px;
+        color: #103e5c;
+    }
+
+    #all_buttons_container .elementor-button-text.selected>mark {
+        color: #2e3208;
+        background-color: #fffa5f;
+        box-shadow: 0 0 20px 1px #fffa5f4a;
+    }
+</style>
+<script>
+    const custom_search = document.querySelector('#custom-search');
+    const input = custom_search.querySelector('input');
+    const results_container = custom_search.querySelector('div');
+    const result_element = document.createElement('div');
+    let stories;
+    let element_selected;
+    let found_stories = false;
+    findStories = () => {
+        if (typeof stories === 'undefined') {
+            stories = document.querySelectorAll('#all_buttons_container .elementor-button-text');
+        }
+        value_to_search = input.value;
+        results_container.innerText = '';
+        element_selected?.classList.remove('selected');
+        stories.forEach(element => {
+            element_text = element.innerText;
+            if (value_to_search !== '' && element_text.search(value_to_search) !== -1) {
+                element.innerHTML = '<mark>' + element_text + '</mark>';
+                const clone = result_element.cloneNode();
+                clone.innerText = element_text;
+                clone.addEventListener('click', () => {
+                    element_selected?.classList.remove('selected');
+                    element_selected = element;
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center',
+                        inline: 'center'
+                    });
+                    element_selected.classList.add('selected');
+                })
+                results_container.prepend(clone);
+                found_stories = true;
+            } else {
+                if (element.innerHTML.search('mark') !== -1) {
+                    element.innerText = element_text;
+                }
+            }
+        });
+        if (found_stories) {
+            input.style.marginBottom = '10px';
+            found_stories = false;
+        } else {
+            input.style.marginBottom = '';
+        }
+    }
+</script>
