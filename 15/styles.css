@@ -1,0 +1,59 @@
+selector>div {
+    max-width: 900px
+}
+
+#yyl-form>.yyl-field {
+    display: flex;
+    margin: 8px 0;
+}
+
+#yyl-form>.yyl-field>.yyl-name {
+    flex-grow: 1;
+    margin-right: 5px;
+}
+
+#yyl-form>.yyl-field>.yyl-age {
+    width: 20%;
+    max-width: 100px;
+}
+
+#yyl-form>.yyl-field label {
+    color: #a8466f;
+    font-family: "Rubik", Sans-serif;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+#yyl-form>.yyl-field input {
+    border-color: #AD4F76;
+    color: #a8466f;
+    border-width: 2px;
+    border-radius: 10px;
+    font-family: "Roboto", Sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.elementor-field-group-children {
+    display: none;
+}
+
+#yyl-add-field {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#yyl-add-field span:hover {
+    background-color: rgb(75, 128, 69);
+    color: white;
+    text-decoration: underline
+}
+
+#yyl-add-field span {
+    display: inline-block;
+    padding: 2px 10px 0 10px;
+    border-radius: 2px;
+    cursor: pointer;
+}
