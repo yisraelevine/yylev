@@ -1,0 +1,45 @@
+<div id="yyl-form">
+    <div class="yyl-field">
+        <label class="yyl-name">
+            <label>Name</label>
+            <input type="text">
+        </label>
+        <label class="yyl-age">
+            <label>Age</label>
+            <input type="number">
+        </label>
+    </div>
+</div>
+<div id="yyl-add-field">
+    <span>Add Child</span>
+</div>
+<script>
+    const messageBox = document.querySelector('#form-field-field_7094b0a');
+    const yylForm = document.querySelector('#yyl-form');
+    const node = yylForm.querySelector('.yyl-field');
+    const yylAddField = document.querySelector('#yyl-add-field');
+
+    const UpdateBoxValue = () => {
+        messageBox.value = '\n';
+        yylForm.querySelectorAll('.yyl-field').forEach(el => {
+            messageBox.value +=
+                el.querySelector('.yyl-name input').value
+                + ': '
+                + el.querySelector('.yyl-age input').value
+                + ', ';
+        })
+    }
+
+    const AddField = () => {
+        const clone = node.cloneNode(true);
+        console.log(clone)
+        clone.querySelectorAll('input').forEach(el => {
+            el.value = '';
+        });
+        yylForm.appendChild(clone);
+    }
+
+    yylForm.addEventListener('input', UpdateBoxValue);
+    yylAddField.addEventListener('click', AddField);
+
+</script>
