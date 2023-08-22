@@ -16,9 +16,11 @@ const audio = popupContainer.querySelector('audio');
 let selectedCategoryNode;
 let selectedCategoryIndex;
 let selectedStoryButton;
-let selectedStory;
+let selectedStoryIndex;
 let prevStory;
 let nextStory;
+let prevStoryNode;
+let nextStoryNode;
 const allStories = [];
 
 const gdUrl = (url) => {
@@ -32,6 +34,7 @@ const dbUrl = (url) => {
 }
 
 const showPopup = () => {
+    changeNavVisibility();
     popupContainer.style.display = 'flex';
 }
 
@@ -50,17 +53,20 @@ const changeCategoriesStyle = (i) => {
 }
 
 const changeStoriesShown = (ci) => {
+    
+    selectedCategoryIndex = ci;
 
     storiesContainer.innerHTML = '';
     allStories[ci].forEach((el, i) => {
         const clone = storyNode.cloneNode(true);
         clone.querySelector('.elementor-button-text').innerText = el[0];
         clone.addEventListener('click', () => {
+            selectedStoryIndex = i;
             prevStory = allStories[ci]?.[i - 1];
             nextStory = allStories[ci]?.[i + 1];
             selectedStoryButton = clone;
-            selectedStory = el;
-            playStory(selectedStory);
+            changeNavVisibility();
+            playStory(el);
             showPopup();
         })
         storiesContainer.prepend(clone);
@@ -80,13 +86,17 @@ const getData = async () => {
     const oldS = splitIndex !== -1 ? rows.slice(splitIndex + 1) : [];
     const count = Math.ceil(oldS.length / 50);
 
-
     document.querySelector('#date-updated .elementor-heading-title').innerText = table.cols[0]?.label;
 
     recentContainer.innerHTML = '';
     recS.forEach(el => {
         const clone = recentNode.cloneNode(true);
         clone.querySelector('.elementor-button-text').innerText = el[0].replace('*', '');
+        clone.addEventListener('click', () => {
+            selectedStoryIndex = -1;
+            showPopup();
+            playStory(el);
+        })
         recentContainer.appendChild(clone);
     })
 
@@ -111,19 +121,38 @@ const getData = async () => {
 
 getData();
 
+downloadStory.target = '_blank';
+
 popupContainer.querySelector('.popup-close').addEventListener('click', () => {
     popupContainer.style.display = '';
     audio.pause();
 });
 
 prevStoryButton.addEventListener('click', () => {
-    if (prevStory) {
-        playStory(prevStory);
-    }
+    playStory(prevStory);
+    selectedStoryButton = selectedStoryButton.nextElementSibling;
+    selectedStoryIndex -= 1;
+    navClickEvent();
+    changeNavVisibility();
 });
 
 nextStoryButton.addEventListener('click', () => {
-    if (nextStory) {
-        playStory(nextStory);
-    }
+    playStory(nextStory);
+    selectedStoryButton = selectedStoryButton.previousElementSibling;
+    selectedStoryIndex += 1;
+    navClickEvent();
+    changeNavVisibility();
 });
+
+const navClickEvent = () => {
+    const catg = allStories[selectedCategoryIndex];
+    const i = selectedStoryIndex;
+    prevStory = catg?.[i - 1];
+    nextStory = catg?.[i + 1];
+}
+
+const changeNavVisibility = () => {
+    prevStoryButton.style.display = prevStory ? '' : 'none';
+    nextStoryButton.style.display = nextStory ? '' : 'none';
+    selectedStoryButton?.classList.add('selected');
+}
