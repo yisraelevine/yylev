@@ -1,0 +1,90 @@
+selector .elementor-field-type-html {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+selector .yyl-count {
+    margin-bottom: 5px;
+    text-wrap: nowrap;
+}
+
+selector .yyl-count>span {
+    color: #a8466f;
+    font-family: "Rubik", Sans-serif;
+    font-size: 24px;
+    margin-right: 4px;
+}
+
+selector .yyl-count>input {
+    border-color: #AD4F76;
+    color: #a8466f;
+    border-width: 1px;
+    border-radius: 5px;
+    font-family: "Roboto", Sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 2px 6px;
+    letter-spacing: 1px;
+    width: 70px;
+}
+
+selector .yyl-fields {
+    max-height: 200px;
+    overflow-y: scroll;
+    padding-right: 5px;
+}
+
+selector .yyl-field {
+    display: flex;
+    background-color: #f7a6c47a;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+selector .yyl-field:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+selector .yyl-field>.yyl-age {
+    width: 20%;
+    min-width: 60px;
+    max-width: 100px;
+}
+
+selector .yyl-field .yyl-gender>label {
+    text-wrap: nowrap;
+}
+
+selector .yyl-field .yyl-gender {
+    width: min-content;
+}
+
+selector .yyl-field label {
+    color: #a8466f;
+    font-family: "Rubik", Sans-serif;
+    font-size: 18px;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+selector .yyl-field>div:not(:last-child) {
+    margin-right: 5px;
+}
+
+selector .yyl-field input {
+    border-color: #AD4F76;
+    color: #a8466f;
+    border-width: 1px;
+    border-radius: 5px;
+    font-family: "Roboto", Sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 2px 6px;
+    letter-spacing: 1px;
+}
+
+selector .elementor-field-group-yylFormBox {
+    display: none;
+}

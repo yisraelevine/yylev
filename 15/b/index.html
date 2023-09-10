@@ -1,0 +1,147 @@
+<div id="yyl-form-adults">
+    <div class="yyl-count">
+        <span>How many adults</span>
+        <input type="number" min="0" max="10" value="">
+    </div>
+    <div class="yyl-fields">
+        <div class="yyl-field">
+            <div class="yyl-first-name">
+                <label>First Name</label>
+                <input type="text">
+            </div>
+            <div class="yyl-last-name">
+                <label>Last Name</label>
+                <input type="text">
+            </div>
+            <div class="yyl-gender">
+                <label>
+                    Male
+                    <input type="radio" value="Male" name="gender1">
+                </label>
+                <label>
+                    Female
+                    <input type="radio" value="Female" name="gender1">
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="children-intro">
+    <p>
+        We have a great program prepared with entertainers,
+        in & out door activities, raffles & prizes! Lunch will be served.
+        The Children will be brought in for Shofar.
+    </p>
+    <p>
+        Please prepare your children beforehand about the Holiness of the day, and decorum in Shul.
+        This will help them behave accordingly, and make positive memories.
+    </p>
+    <p>
+        Due to the nature of the Esplanade (homecare) the children are not allowed to be wandering around the halls.
+        They must remain with their group at all times.
+    </p>
+    <p>
+        *Upon arrival please make sure to bring your child/children directly to their assigned room.*
+    </p>
+</div>
+
+<div id="yyl-form-children">
+    <div class="yyl-count">
+        <span>How many children</span>
+        <input type="number" min="0" max="10" value="">
+    </div>
+    <div class="yyl-fields">
+        <div class="yyl-field">
+            <div class="yyl-name">
+                <label>Name</label>
+                <input type="text">
+            </div>
+            <div class="yyl-age">
+                <label>Age</label>
+                <input type="number">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const yylAdults = {}, yylChildren = {};
+    const box = document.querySelector('#form-field-yylFormBox');
+    yylAdults.container = document.querySelector('#yyl-form-adults>.yyl-fields');
+    yylChildren.container = document.querySelector('#yyl-form-children>.yyl-fields');
+    yylChildren.box = document.querySelector('#form-field-yylFormBoxChildren');
+    yylAdults.count = document.querySelector('#yyl-form-adults .yyl-count>input')
+    yylChildren.count = document.querySelector('#yyl-form-children .yyl-count>input')
+    yylAdults.node = yylAdults.container.querySelector('.yyl-field');
+    yylChildren.node = yylChildren.container.querySelector('.yyl-field');
+
+    const UpdateBoxValue = () => {
+        box.value = 'Adults: \n';
+        yylAdults.container.querySelectorAll('.yyl-field').forEach(el => {
+            box.value +=
+                (el.querySelector('.yyl-first-name input')?.value || '')
+                + ' '
+                + (el.querySelector('.yyl-last-name input')?.value || '')
+                + '('
+                + (el.querySelector('.yyl-gender input:checked')?.value || '')
+                + '), ';
+        })
+        box.value += '\nChildren: \n';
+        yylChildren.container.querySelectorAll('.yyl-field').forEach(el => {
+            box.value +=
+                (el.querySelector('.yyl-name input')?.value || '')
+                + '('
+                + (el.querySelector('.yyl-age input')?.value || '')
+                + '), ';
+        })
+    }
+
+    yylAdults.node.remove();
+    yylChildren.node.remove();
+
+    yylAdults.container.addEventListener('input', UpdateBoxValue);
+    yylChildren.container.addEventListener('input', UpdateBoxValue);
+
+    yylAdults.count.addEventListener('input', () => {
+        const fieldsCount = yylAdults.container.children.length;
+        let countValue = yylAdults.count.value;
+        if (countValue.length > 0) {
+            countValue = countValue <= 10 ? countValue - fieldsCount : 10 - fieldsCount;
+            for (let i = 0; i < countValue; i++) {
+                const clone = yylAdults.node.cloneNode(true);
+                clone.querySelectorAll('input').forEach(element => {
+                    if (element.type === 'radio') {
+                        element.checked = false;
+                        element.name = 'gender' + (fieldsCount + i);
+                    } else {
+                        element.value = '';
+                    }
+                });
+                yylAdults.container.appendChild(clone);
+            }
+            for (let i = countValue; i < 0; i++) {
+                yylAdults.container.lastElementChild.remove();
+            }
+            UpdateBoxValue();
+        }
+    });
+
+    yylChildren.count.addEventListener('input', () => {
+        const fieldsCount = yylChildren.container.children.length;
+        let countValue = yylChildren.count.value;
+        if (countValue.length > 0) {
+            countValue = countValue <= 10 ? countValue - fieldsCount : 10 - fieldsCount;
+            for (let i = 0; i < countValue; i++) {
+                const clone = yylChildren.node.cloneNode(true);
+                clone.querySelectorAll('input').forEach(element => {
+                    element.value = '';
+                });
+                yylChildren.container.appendChild(clone);
+            }
+            for (let i = countValue; i < 0; i++) {
+                yylChildren.container.lastElementChild.remove();
+            }
+            UpdateBoxValue();
+        }
+    });
+
+</script>
